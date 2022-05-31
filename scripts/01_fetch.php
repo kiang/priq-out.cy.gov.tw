@@ -55,11 +55,11 @@ foreach ($lines as $line) {
                         }
                         $oFh[$pCols[3]] = $filePath . '/' . $fileParts[1] . '.csv';
                         $wFh = fopen($oFh[$pCols[3]], 'w');
-                        fputcsv($wFh, ['date', 'period', 'name', 'type', 'link']);
+                        fputcsv($wFh, ['date', 'period', 'name', 'title', 'type', 'link']);
                         fclose($wFh);
                     }
                     $wFh = fopen($oFh[$pCols[3]], 'a');
-                    fputcsv($wFh, [$theDate, $cols[1], $pCols[1], $pCols[4], $link]);
+                    fputcsv($wFh, [$theDate, $cols[1], $pCols[1], $pCols[3], $pCols[4], $link]);
                     fclose($wFh);
                     $pdfFile = $periodPath . '/' . $pCols[3] . '_' . $pCols[1] . '.pdf';
                     if (!file_exists($pdfFile)) {
