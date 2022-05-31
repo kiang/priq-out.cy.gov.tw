@@ -1,0 +1,4020 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="18_02" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        80
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="王文正" href="javascript:redirectFileDownload('Y')">
+            
+            王文正
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4623-4625
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="朱俊曉" href="javascript:redirectFileDownload('Y')">
+            
+            朱俊曉
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4626-4628
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="朱為中" href="javascript:redirectFileDownload('Y')">
+            
+            朱為中
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4629-4631
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="余松俊" href="javascript:redirectFileDownload('Y')">
+            
+            余松俊
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4632-4634
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="吳仁健" href="javascript:redirectFileDownload('Y')">
+            
+            吳仁健
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4635-4637
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="吳克清" href="javascript:redirectFileDownload('Y')">
+            
+            吳克清
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4638-4640
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="吳茂雄" href="javascript:redirectFileDownload('Y')">
+            
+            吳茂雄
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4641-4644
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="吳萬等" href="javascript:redirectFileDownload('Y')">
+            
+            吳萬等
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4645-4647
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="呂學樟" href="javascript:redirectFileDownload('Y')">
+            
+            呂學樟
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4648-4650
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="巫永青" href="javascript:redirectFileDownload('Y')">
+            
+            巫永青
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4651-4653
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="李宏裕" href="javascript:redirectFileDownload('Y')">
+            
+            李宏裕
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4654-4656
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="杜文卿" href="javascript:redirectFileDownload('Y')">
+            
+            杜文卿
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4657-4659
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="杜振榮" href="javascript:redirectFileDownload('Y')">
+            
+            杜振榮
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4660-4662
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="林恆生" href="javascript:redirectFileDownload('Y')">
+            
+            林恆生
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4663-4665
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="林忠信" href="javascript:redirectFileDownload('Y')">
+            
+            林忠信
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4666-4668
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="林國華" href="javascript:redirectFileDownload('Y')">
+            
+            林國華
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4669-4671
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="林嫦茹" href="javascript:redirectFileDownload('Y')">
+            
+            林嫦茹
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4672-4674
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="法治斌" href="javascript:redirectFileDownload('Y')">
+            
+            法治斌
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4675-4677
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="馬緒援" href="javascript:redirectFileDownload('Y')">
+            
+            馬緒援
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4678-4680
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="高正治" href="javascript:redirectFileDownload('Y')">
+            
+            高正治
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4681-4683
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="高忠信" href="javascript:redirectFileDownload('Y')">
+            
+            高忠信
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4684-4687
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="張富忠" href="javascript:redirectFileDownload('Y')">
+            
+            張富忠
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4688-4690
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="張慶忠" href="javascript:redirectFileDownload('Y')">
+            
+            張慶忠
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4691-4696
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="郭時南" href="javascript:redirectFileDownload('Y')">
+            
+            郭時南
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4697-4699
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="陳博文" href="javascript:redirectFileDownload('Y')">
+            
+            陳博文
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4700-4702
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="彭光政" href="javascript:redirectFileDownload('Y')">
+            
+            彭光政
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4703-4705
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="馮定國" href="javascript:redirectFileDownload('Y')">
+            
+            馮定國
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4706-4709
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="黃上揚" href="javascript:redirectFileDownload('Y')">
+            
+            黃上揚
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4710-4712
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="黃來鎰" href="javascript:redirectFileDownload('Y')">
+            
+            黃來鎰
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4713-4717
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="黃玲娜" href="javascript:redirectFileDownload('Y')">
+            
+            黃玲娜
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4718-4720
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="楊崇森" href="javascript:redirectFileDownload('Y')">
+            
+            楊崇森
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4721-4723
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="楊景淋" href="javascript:redirectFileDownload('Y')">
+            
+            楊景淋
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4724-7427
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="趙玲玲" href="javascript:redirectFileDownload('Y')">
+            
+            趙玲玲
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4728-4730
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="劉正文" href="javascript:redirectFileDownload('Y')">
+            
+            劉正文
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4731-4733
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="劉德成" href="javascript:redirectFileDownload('Y')">
+            
+            劉德成
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4734-4736
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="穆閩珠" href="javascript:redirectFileDownload('Y')">
+            
+            穆閩珠
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4737-4739
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="楊寶發" href="javascript:redirectFileDownload('Y')">
+            
+            楊寶發
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          內政部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4740-4743
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="鄧權昌" href="javascript:redirectFileDownload('Y')">
+            
+            鄧權昌
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          外交部
+          
+          /
+          
+          大使
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4744-4746
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="劉伯倫" href="javascript:redirectFileDownload('Y')">
+            
+            劉伯倫
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          外交部
+          
+          /
+          
+          代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4747-4749
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="簡又新" href="javascript:redirectFileDownload('Y')">
+            
+            簡又新
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          外交部
+          
+          /
+          
+          代表
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4750-4753
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="王弓" href="javascript:redirectFileDownload('Y')">
+            
+            王弓
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4754-4757
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="王世雄" href="javascript:redirectFileDownload('Y')">
+            
+            王世雄
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4758-4761
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="王建煊" href="javascript:redirectFileDownload('Y')">
+            
+            王建煊
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4762-4764
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="王國清" href="javascript:redirectFileDownload('Y')">
+            
+            王國清
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4765-4767
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="朱鳳芝" href="javascript:redirectFileDownload('Y')">
+            
+            朱鳳芝
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4768-4771
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="李必賢" href="javascript:redirectFileDownload('Y')">
+            
+            李必賢
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4772-4775
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="李鳴皋" href="javascript:redirectFileDownload('Y')">
+            
+            李鳴皋
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4776-4778
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="林瑞卿" href="javascript:redirectFileDownload('Y')">
+            
+            林瑞卿
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4779-4782
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="林聰明" href="javascript:redirectFileDownload('Y')">
+            
+            林聰明
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4783-4785
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="邱垂貞" href="javascript:redirectFileDownload('Y')">
+            
+            邱垂貞
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4786-4788
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="洪秀柱" href="javascript:redirectFileDownload('Y')">
+            
+            洪秀柱
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4789-4791
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="高天來" href="javascript:redirectFileDownload('Y')">
+            
+            高天來
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4792-4795
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="徐中雄" href="javascript:redirectFileDownload('Y')">
+            
+            徐中雄
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4796-4798
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="翁大銘" href="javascript:redirectFileDownload('Y')">
+            
+            翁大銘
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4799-4802
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="翁重鈞" href="javascript:redirectFileDownload(33201)">
+            
+            翁重鈞
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4803-4806
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="許添財" href="javascript:redirectFileDownload(33202)">
+            
+            許添財
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4807-4811
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="張旭成" href="javascript:redirectFileDownload('Y')">
+            
+            張旭成
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4812-4815
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="陳光復" href="javascript:redirectFileDownload('Y')">
+            
+            陳光復
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4816-4818
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="陳婉真" href="javascript:redirectFileDownload('Y')">
+            
+            陳婉真
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4819-4822
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="陳朝容" href="javascript:redirectFileDownload('Y')">
+            
+            陳朝容
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4823-4826
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="陳傑儒" href="javascript:redirectFileDownload('Y')">
+            
+            陳傑儒
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4827-4830
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="曾永權" href="javascript:redirectFileDownload('Y')">
+            
+            曾永權
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4831-4833
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="華加志" href="javascript:redirectFileDownload('Y')">
+            
+            華加志
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4834-4836
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="彭百顯" href="javascript:redirectFileDownload('Y')">
+            
+            彭百顯
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4837-4839
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="黃爾璇" href="javascript:redirectFileDownload('Y')">
+            
+            黃爾璇
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4840-4842
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="葉菊蘭" href="javascript:redirectFileDownload('Y')">
+            
+            葉菊蘭
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4843-4845
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="葉憲修" href="javascript:redirectFileDownload('Y')">
+            
+            葉憲修
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4846-4848
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="趙永清" href="javascript:redirectFileDownload('Y')">
+            
+            趙永清
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4849-4852
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="趙綉娃" href="javascript:redirectFileDownload('Y')">
+            
+            趙綉娃
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4853-4856
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="劉文慶" href="javascript:redirectFileDownload('Y')">
+            
+            劉文慶
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4857-4860
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="劉光華" href="javascript:redirectFileDownload('Y')">
+            
+            劉光華
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4861-4863
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="蔡同榮" href="javascript:redirectFileDownload('Y')">
+            
+            蔡同榮
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4864-4867
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="謝啟大" href="javascript:redirectFileDownload('Y')">
+            
+            謝啟大
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4868-4870
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="顏錦福" href="javascript:redirectFileDownload('Y')">
+            
+            顏錦福
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4871-4873
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="蕭金蘭" href="javascript:redirectFileDownload('Y')">
+            
+            蕭金蘭
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4874-4876
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="蘇渙智" href="javascript:redirectFileDownload(33222)">
+            
+            蘇渙智
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4877-4879
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="戴東雄" href="javascript:redirectFileDownload('Y')">
+            
+            戴東雄
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          司法院
+          
+          /
+          
+          大法官
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4880-4883
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="趙其文" href="javascript:redirectFileDownload('Y')">
+            
+            趙其文
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          考試院
+          
+          /
+          
+          考試委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4884-4886
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="陳進利" href="javascript:redirectFileDownload('Y')">
+            
+            陳進利
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4887-4889
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="廖福本" href="javascript:redirectFileDownload('Y')">
+            
+            廖福本
+            
+          </a>
+        </td>
+        <td>
+          
+          18
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國84年
+			02月
+			14日</td>
+        <td>
+          
+          p4890-4893
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>

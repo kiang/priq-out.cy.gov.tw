@@ -1,0 +1,4020 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="84_02" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        80
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="于樹潔" href="javascript:redirectFileDownload('Y')">
+            
+            于樹潔
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p1-3
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="王明玉" href="javascript:redirectFileDownload('Y')">
+            
+            王明玉
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p4-6
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="王東暉" href="javascript:redirectFileDownload('Y')">
+            
+            王東暉
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p7-10
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="王美月" href="javascript:redirectFileDownload('Y')">
+            
+            王美月
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p11-18
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="王高成" href="javascript:redirectFileDownload('Y')">
+            
+            王高成
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p19-22
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="王國清" href="javascript:redirectFileDownload('Y')">
+            
+            王國清
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p23-26
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="王逢明" href="javascript:redirectFileDownload('Y')">
+            
+            王逢明
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p27-29
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="王智" href="javascript:redirectFileDownload('Y')">
+            
+            王智
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p30-32
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="王慶三" href="javascript:redirectFileDownload('Y')">
+            
+            王慶三
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p33-35
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="王戴春滿" href="javascript:redirectFileDownload('Y')">
+            
+            王戴春滿
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p36-39
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="田昭容" href="javascript:redirectFileDownload('Y')">
+            
+            田昭容
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p40-43
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="朱新民" href="javascript:redirectFileDownload('Y')">
+            
+            朱新民
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p44-46
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="朱銅樹" href="javascript:redirectFileDownload('Y')">
+            
+            朱銅樹
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p47-50
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="江文如" href="javascript:redirectFileDownload('Y')">
+            
+            江文如
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p51-53
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="江吉源" href="javascript:redirectFileDownload('Y')">
+            
+            江吉源
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p54-57
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="江昭儀" href="javascript:redirectFileDownload('Y')">
+            
+            江昭儀
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p58-60
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="何敏豪" href="javascript:redirectFileDownload('Y')">
+            
+            何敏豪
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p61-63
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="吳正群" href="javascript:redirectFileDownload('Y')">
+            
+            吳正群
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p64-66
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="李正宗" href="javascript:redirectFileDownload('Y')">
+            
+            李正宗
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p67-69
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="李先仁" href="javascript:redirectFileDownload('Y')">
+            
+            李先仁
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p70-72
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="李宏裕" href="javascript:redirectFileDownload('Y')">
+            
+            李宏裕
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p73-75
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="李宗正" href="javascript:redirectFileDownload('Y')">
+            
+            李宗正
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p76-79
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="李金億" href="javascript:redirectFileDownload('Y')">
+            
+            李金億
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p80-83
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="李炳南" href="javascript:redirectFileDownload('Y')">
+            
+            李炳南
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p84-87
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="李詩益" href="javascript:redirectFileDownload('Y')">
+            
+            李詩益
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p88-91
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="李榮堂" href="javascript:redirectFileDownload('Y')">
+            
+            李榮堂
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p92-94
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="李炷烽" href="javascript:redirectFileDownload('Y')">
+            
+            李炷烽
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p95-98
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="杜震華" href="javascript:redirectFileDownload('Y')">
+            
+            杜震華
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p99-101
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="沈銀和" href="javascript:redirectFileDownload('Y')">
+            
+            沈銀和
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p102-105
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="汪志冰" href="javascript:redirectFileDownload('Y')">
+            
+            汪志冰
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p106-109
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="卓政防" href="javascript:redirectFileDownload('Y')">
+            
+            卓政防
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p110-112
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="林正國" href="javascript:redirectFileDownload('Y')">
+            
+            林正國
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p113-116
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="林光顯" href="javascript:redirectFileDownload('Y')">
+            
+            林光顯
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p117-119
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="林育生" href="javascript:redirectFileDownload('Y')">
+            
+            林育生
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p120-122
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="林忠山" href="javascript:redirectFileDownload('Y')">
+            
+            林忠山
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p123-125
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="林明昌" href="javascript:redirectFileDownload('Y')">
+            
+            林明昌
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p126-131
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="林阿仁" href="javascript:redirectFileDownload('Y')">
+            
+            林阿仁
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p132-139
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="林淵源" href="javascript:redirectFileDownload('Y')">
+            
+            林淵源
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p140-143
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="林勝利" href="javascript:redirectFileDownload('Y')">
+            
+            林勝利
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p144-146
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="林嵩山" href="javascript:redirectFileDownload('Y')">
+            
+            林嵩山
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p147-149
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="林嫦茹" href="javascript:redirectFileDownload('Y')">
+            
+            林嫦茹
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p150-153
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="邱太三" href="javascript:redirectFileDownload('Y')">
+            
+            邱太三
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p154-157
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="邱奕彬" href="javascript:redirectFileDownload('Y')">
+            
+            邱奕彬
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p158-160
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="邱國昌" href="javascript:redirectFileDownload(38915)">
+            
+            邱國昌
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p161-163
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="邱議瑩" href="javascript:redirectFileDownload(38916)">
+            
+            邱議瑩
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p164-166
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="洪秀菊" href="javascript:redirectFileDownload('Y')">
+            
+            洪秀菊
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p167-170
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="洪茂澤" href="javascript:redirectFileDownload('Y')">
+            
+            洪茂澤
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p171-174
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="洪順五" href="javascript:redirectFileDownload('Y')">
+            
+            洪順五
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p175-177
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="徐國士" href="javascript:redirectFileDownload('Y')">
+            
+            徐國士
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p178-180
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="徐鴻進" href="javascript:redirectFileDownload('Y')">
+            
+            徐鴻進
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p181-189
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="張光輝" href="javascript:redirectFileDownload('Y')">
+            
+            張光輝
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p190-195
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="張坤霖" href="javascript:redirectFileDownload('Y')">
+            
+            張坤霖
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p196-199
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="張明致" href="javascript:redirectFileDownload('Y')">
+            
+            張明致
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p200-203
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="張松樹" href="javascript:redirectFileDownload('Y')">
+            
+            張松樹
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p204-208
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="張金華" href="javascript:redirectFileDownload('Y')">
+            
+            張金華
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p209-211
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="張建隆" href="javascript:redirectFileDownload('Y')">
+            
+            張建隆
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p212-214
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="張玲" href="javascript:redirectFileDownload('Y')">
+            
+            張玲
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p215-217
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="張倉顯" href="javascript:redirectFileDownload('Y')">
+            
+            張倉顯
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p218-220
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="張輝元" href="javascript:redirectFileDownload('Y')">
+            
+            張輝元
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p221-224
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="張馥堂" href="javascript:redirectFileDownload('Y')">
+            
+            張馥堂
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p225-227
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="陳三思" href="javascript:redirectFileDownload('Y')">
+            
+            陳三思
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p228-230
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="陳子欽" href="javascript:redirectFileDownload('Y')">
+            
+            陳子欽
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p231-233
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="陳玉惠" href="javascript:redirectFileDownload('Y')">
+            
+            陳玉惠
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p234-237
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="陳亦文" href="javascript:redirectFileDownload('Y')">
+            
+            陳亦文
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p238-240
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="陳志寬" href="javascript:redirectFileDownload('Y')">
+            
+            陳志寬
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p241-243
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="陳村雄" href="javascript:redirectFileDownload('Y')">
+            
+            陳村雄
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p244-246
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="陳秀惠" href="javascript:redirectFileDownload('Y')">
+            
+            陳秀惠
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p247-250
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="陳宗仁" href="javascript:redirectFileDownload('Y')">
+            
+            陳宗仁
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p251-253
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="陳金德" href="javascript:redirectFileDownload('Y')">
+            
+            陳金德
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p254-256
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="陳政寬" href="javascript:redirectFileDownload('Y')">
+            
+            陳政寬
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p257-262
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="陳淑暖" href="javascript:redirectFileDownload('Y')">
+            
+            陳淑暖
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p263-267
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="陳雪生" href="javascript:redirectFileDownload(38943)">
+            
+            陳雪生
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p268-270
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="陳朝龍" href="javascript:redirectFileDownload('Y')">
+            
+            陳朝龍
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p271-274
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="陳琪惠" href="javascript:redirectFileDownload('Y')">
+            
+            陳琪惠
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p275-278
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="陳道明" href="javascript:redirectFileDownload('Y')">
+            
+            陳道明
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p279-281
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="陳漢春" href="javascript:redirectFileDownload('Y')">
+            
+            陳漢春
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p282-285
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="陳碧峰" href="javascript:redirectFileDownload('Y')">
+            
+            陳碧峰
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p286-288
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="陳燦鴻" href="javascript:redirectFileDownload('Y')">
+            
+            陳燦鴻
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p289-293
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="陳耀昌" href="javascript:redirectFileDownload('Y')">
+            
+            陳耀昌
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p294-297
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="陳川" href="javascript:redirectFileDownload('Y')">
+            
+            陳川
+            
+          </a>
+        </td>
+        <td>
+          
+          84
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國民大會
+          
+          /
+          
+          國大代表
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國89年
+			06月
+			27日</td>
+        <td>
+          
+          p298-301
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>

@@ -1,0 +1,6229 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="153_01" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        127
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="葉國興" href="javascript:redirectFileDownload(56550)">
+            
+            葉國興
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家安全會議
+          
+          /
+          
+          副秘書長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P1-4
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="葉國興" href="javascript:redirectFileDownload(56551)">
+            
+            葉國興
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家安全會議
+          
+          /
+          
+          副秘書長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P5-5
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="蔡明耀" href="javascript:redirectFileDownload(56552)">
+            
+            蔡明耀
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          外交部
+          
+          /
+          
+          公使
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P6-12
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="蔡明耀" href="javascript:redirectFileDownload(56553)">
+            
+            蔡明耀
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          外交部
+          
+          /
+          
+          公使
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P13-14
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="劉孟奇" href="javascript:redirectFileDownload(56554)">
+            
+            劉孟奇
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          教育部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P15-18
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="王美花" href="javascript:redirectFileDownload(56555)">
+            
+            王美花
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          經濟部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P19-24
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="王美花" href="javascript:redirectFileDownload(56556)">
+            
+            王美花
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          經濟部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P25-25
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="黃玉霖" href="javascript:redirectFileDownload(56557)">
+            
+            黃玉霖
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          交通部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P26-30
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="黃玉霖" href="javascript:redirectFileDownload(56558)">
+            
+            黃玉霖
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          交通部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P31-32
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="劉士豪" href="javascript:redirectFileDownload(56559)">
+            
+            劉士豪
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          勞動部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P33-35
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="蔡文禎" href="javascript:redirectFileDownload(56560)">
+            
+            蔡文禎
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P36-39
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="謝智源" href="javascript:redirectFileDownload(56561)">
+            
+            謝智源
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P40-43
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="謝智源" href="javascript:redirectFileDownload(56562)">
+            
+            謝智源
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P44-44
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="陳添壽" href="javascript:redirectFileDownload(56563)">
+            
+            陳添壽
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P45-49
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="陳添壽" href="javascript:redirectFileDownload(56564)">
+            
+            陳添壽
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P50-51
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="莊慶達" href="javascript:redirectFileDownload(56565)">
+            
+            莊慶達
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          海洋委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P52-55
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="莊慶達" href="javascript:redirectFileDownload(56566)">
+            
+            莊慶達
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          海洋委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P56-57
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="蔡秀涓" href="javascript:redirectFileDownload(56567)">
+            
+            蔡秀涓
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P58-63
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="蔡秀涓" href="javascript:redirectFileDownload(56568)">
+            
+            蔡秀涓
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P64-66
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="林志峯" href="javascript:redirectFileDownload(56569)">
+            
+            林志峯
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府工務局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P67-70
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="林志峯" href="javascript:redirectFileDownload(56570)">
+            
+            林志峯
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府工務局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P71-71
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="陳雪慧" href="javascript:redirectFileDownload(56571)">
+            
+            陳雪慧
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府社會局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P72-74
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="陳雪慧" href="javascript:redirectFileDownload(56572)">
+            
+            陳雪慧
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府社會局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P75-76
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="徐世勳" href="javascript:redirectFileDownload(56573)">
+            
+            徐世勳
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府客家事務委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P77-81
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="徐世勳" href="javascript:redirectFileDownload(56574)">
+            
+            徐世勳
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府客家事務委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P82-82
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="呂新科" href="javascript:redirectFileDownload(56575)">
+            
+            呂新科
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府資訊局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P83-85
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="柯慶忠" href="javascript:redirectFileDownload(56576)">
+            
+            柯慶忠
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府民政局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P86-89
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="柯慶忠" href="javascript:redirectFileDownload(56577)">
+            
+            柯慶忠
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府民政局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P90-90
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="張明文" href="javascript:redirectFileDownload(56578)">
+            
+            張明文
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府教育局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P91-96
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="張明文" href="javascript:redirectFileDownload(56579)">
+            
+            張明文
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府教育局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P97-97
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="何怡明" href="javascript:redirectFileDownload(56580)">
+            
+            何怡明
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府經濟發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P98-100
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="何怡明" href="javascript:redirectFileDownload(56581)">
+            
+            何怡明
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府經濟發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P101-101
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="蔣志薇" href="javascript:redirectFileDownload(56582)">
+            
+            蔣志薇
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府新聞局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P102-104
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="林豐裕" href="javascript:redirectFileDownload(56583)">
+            
+            林豐裕
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府研究發展考核委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P105-108
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="林豐裕" href="javascript:redirectFileDownload(56584)">
+            
+            林豐裕
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府研究發展考核委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P109-109
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="宋德仁" href="javascript:redirectFileDownload(56585)">
+            
+            宋德仁
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府水利局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P110-112
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="宋德仁" href="javascript:redirectFileDownload(56586)">
+            
+            宋德仁
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府水利局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P113-115
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="羅美菁" href="javascript:redirectFileDownload(56587)">
+            
+            羅美菁
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府原住民族行政局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P116-119
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="羅美菁" href="javascript:redirectFileDownload(56588)">
+            
+            羅美菁
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府原住民族行政局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P120-120
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="吳君婷" href="javascript:redirectFileDownload(56589)">
+            
+            吳君婷
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府研究發展考核委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P121-124
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="姚世昌" href="javascript:redirectFileDownload(56590)">
+            
+            姚世昌
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府地方稅務局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P125-130
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="姚世昌" href="javascript:redirectFileDownload(56591)">
+            
+            姚世昌
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府地方稅務局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P131-131
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="葉昭甫" href="javascript:redirectFileDownload(56592)">
+            
+            葉昭甫
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺中市政府交通局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P132-134
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="葉昭甫" href="javascript:redirectFileDownload(56593)">
+            
+            葉昭甫
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺中市政府交通局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P135-135
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="黃文彬" href="javascript:redirectFileDownload(56594)">
+            
+            黃文彬
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺中市政府都市發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P136-147
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="黃文彬" href="javascript:redirectFileDownload(56595)">
+            
+            黃文彬
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺中市政府都市發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P148-149
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="劉怡伶" href="javascript:redirectFileDownload(56596)">
+            
+            劉怡伶
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P150-152
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="劉怡伶" href="javascript:redirectFileDownload(56597)">
+            
+            劉怡伶
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P153-153
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="鄭新輝" href="javascript:redirectFileDownload(56598)">
+            
+            鄭新輝
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府教育局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P154-157
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="鄭新輝" href="javascript:redirectFileDownload(56599)">
+            
+            鄭新輝
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府教育局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P158-158
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="陳信安" href="javascript:redirectFileDownload(56600)">
+            
+            陳信安
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府觀光旅遊局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P159-167
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="陳信安" href="javascript:redirectFileDownload(56601)">
+            
+            陳信安
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府觀光旅遊局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P168-169
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="吳榕峯" href="javascript:redirectFileDownload(56602)">
+            
+            吳榕峯
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府教育局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P170-173
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="葉壽山" href="javascript:redirectFileDownload(56603)">
+            
+            葉壽山
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府社會局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P174-177
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="伏和中" href="javascript:redirectFileDownload(56604)">
+            
+            伏和中
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府經濟發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P178-180
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="李銘義" href="javascript:redirectFileDownload(56605)">
+            
+            李銘義
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府研究發展考核委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P181-185
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="李銘義" href="javascript:redirectFileDownload(56606)">
+            
+            李銘義
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府研究發展考核委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P186-186
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="鄭永祥" href="javascript:redirectFileDownload(56607)">
+            
+            鄭永祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府交通局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P187-193
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="鄭永祥" href="javascript:redirectFileDownload(56608)">
+            
+            鄭永祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府交通局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P194-194
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="黃江祥" href="javascript:redirectFileDownload(56609)">
+            
+            黃江祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府消防局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P195-198
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="黃江祥" href="javascript:redirectFileDownload(56610)">
+            
+            黃江祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府消防局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P199-199
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="吳昭軍" href="javascript:redirectFileDownload(56611)">
+            
+            吳昭軍
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P200-203
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="吳昭軍" href="javascript:redirectFileDownload(56612)">
+            
+            吳昭軍
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P204-204
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="林文志" href="javascript:redirectFileDownload(56613)">
+            
+            林文志
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          雲林縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P205-207
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="林文志" href="javascript:redirectFileDownload(56614)">
+            
+            林文志
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          雲林縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P208-208
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="周柏吟" href="javascript:redirectFileDownload(56615)">
+            
+            周柏吟
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          雲林縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P209-212
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="汪令堯" href="javascript:redirectFileDownload(56616)">
+            
+            汪令堯
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          雲林縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P213-216
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="汪令堯" href="javascript:redirectFileDownload(56617)">
+            
+            汪令堯
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          雲林縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P217-218
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="張耀懋" href="javascript:redirectFileDownload(56618)">
+            
+            張耀懋
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市政府衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P219-222
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="張耀懋" href="javascript:redirectFileDownload(56619)">
+            
+            張耀懋
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市政府衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P223-224
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="顏幸苑" href="javascript:redirectFileDownload(56620)">
+            
+            顏幸苑
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          屏東縣政府環境保護局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P225-227
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="顏幸苑" href="javascript:redirectFileDownload(56621)">
+            
+            顏幸苑
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          屏東縣政府環境保護局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P228-228
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="張逸華" href="javascript:redirectFileDownload(56622)">
+            
+            張逸華
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          花蓮縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P229-232
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="朱家祥" href="javascript:redirectFileDownload(56623)">
+            
+            朱家祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          花蓮縣衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P233-235
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="朱家祥" href="javascript:redirectFileDownload(56624)">
+            
+            朱家祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          花蓮縣衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P236-236
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="江躍辰" href="javascript:redirectFileDownload(56625)">
+            
+            江躍辰
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          花蓮縣文化局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P237-241
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="江躍辰" href="javascript:redirectFileDownload(56626)">
+            
+            江躍辰
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          花蓮縣文化局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P242-247
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="丁健剛" href="javascript:redirectFileDownload(56627)">
+            
+            丁健剛
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P248-250
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="丁健剛" href="javascript:redirectFileDownload(56628)">
+            
+            丁健剛
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P251-251
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="董燊" href="javascript:redirectFileDownload(56629)">
+            
+            董燊
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P252-256
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          81
+          
+          .
+        </td>
+        <td>
+          <a title="董燊" href="javascript:redirectFileDownload(56630)">
+            
+            董燊
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P257-257
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          82
+          
+          .
+        </td>
+        <td>
+          <a title="羅德水" href="javascript:redirectFileDownload(56631)">
+            
+            羅德水
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P258-261
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          83
+          
+          .
+        </td>
+        <td>
+          <a title="羅德水" href="javascript:redirectFileDownload(56632)">
+            
+            羅德水
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P262-263
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          84
+          
+          .
+        </td>
+        <td>
+          <a title="孫國智" href="javascript:redirectFileDownload(56633)">
+            
+            孫國智
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P264-267
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          85
+          
+          .
+        </td>
+        <td>
+          <a title="孫國智" href="javascript:redirectFileDownload(56634)">
+            
+            孫國智
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          金門縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P268-269
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          86
+          
+          .
+        </td>
+        <td>
+          <a title="何欣純" href="javascript:redirectFileDownload(56635)">
+            
+            何欣純
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P270-271
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          87
+          
+          .
+        </td>
+        <td>
+          <a title="蘇震清" href="javascript:redirectFileDownload(56636)">
+            
+            蘇震清
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P272-272
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          88
+          
+          .
+        </td>
+        <td>
+          <a title="藍世聰" href="javascript:redirectFileDownload(56637)">
+            
+            藍世聰
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府民政局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P273-274
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          89
+          
+          .
+        </td>
+        <td>
+          <a title="侯友宜" href="javascript:redirectFileDownload(56638)">
+            
+            侯友宜
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新北市政府
+          
+          /
+          
+          副市長
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P275-276
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          90
+          
+          .
+        </td>
+        <td>
+          <a title="鄭文燦" href="javascript:redirectFileDownload(56639)">
+            
+            鄭文燦
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府
+          
+          /
+          
+          市長
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P277-279
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          91
+          
+          .
+        </td>
+        <td>
+          <a title="黃進興" href="javascript:redirectFileDownload(56640)">
+            
+            黃進興
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央研究院
+          
+          /
+          
+          副院長
+          
+        </td>
+        <td>
+          
+          11新增信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P280-280
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          92
+          
+          .
+        </td>
+        <td>
+          <a title="田秋堇" href="javascript:redirectFileDownload(56641)">
+            
+            田秋堇
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          11新增信託申報
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P281-281
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          93
+          
+          .
+        </td>
+        <td>
+          <a title="黃進興" href="javascript:redirectFileDownload(56642)">
+            
+            黃進興
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央研究院
+          
+          /
+          
+          副院長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P282-282
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          94
+          
+          .
+        </td>
+        <td>
+          <a title="彭紹瑾" href="javascript:redirectFileDownload(56643)">
+            
+            彭紹瑾
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P283-283
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          95
+          
+          .
+        </td>
+        <td>
+          <a title="羅昌發" href="javascript:redirectFileDownload(56644)">
+            
+            羅昌發
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          司法院
+          
+          /
+          
+          大法官
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P284-284
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          96
+          
+          .
+        </td>
+        <td>
+          <a title="周弘憲" href="javascript:redirectFileDownload(56645)">
+            
+            周弘憲
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          部長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P285-285
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          97
+          
+          .
+        </td>
+        <td>
+          <a title="蔡秀涓" href="javascript:redirectFileDownload(56646)">
+            
+            蔡秀涓
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P286-286
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          98
+          
+          .
+        </td>
+        <td>
+          <a title="田秋菫" href="javascript:redirectFileDownload(56647)">
+            
+            田秋菫
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P287-287
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          99
+          
+          .
+        </td>
+        <td>
+          <a title="林雅鋒" href="javascript:redirectFileDownload(56648)">
+            
+            林雅鋒
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P288-288
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          100
+          
+          .
+        </td>
+        <td>
+          <a title="章仁香" href="javascript:redirectFileDownload(56649)">
+            
+            章仁香
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P289-289
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          101
+          
+          .
+        </td>
+        <td>
+          <a title="趙永清" href="javascript:redirectFileDownload(56650)">
+            
+            趙永清
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          監察院
+          
+          /
+          
+          監察委員
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P290-292
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          102
+          
+          .
+        </td>
+        <td>
+          <a title="石春霞" href="javascript:redirectFileDownload(56651)">
+            
+            石春霞
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市動產質借處
+          
+          /
+          
+          副處長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P293-293
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          103
+          
+          .
+        </td>
+        <td>
+          <a title="傳永茂" href="javascript:redirectFileDownload(56652)">
+            
+            傳永茂
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市政府兵役局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P294-294
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          104
+          
+          .
+        </td>
+        <td>
+          <a title="鄭文燦" href="javascript:redirectFileDownload(56653)">
+            
+            鄭文燦
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府
+          
+          /
+          
+          市長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P295-295
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          105
+          
+          .
+        </td>
+        <td>
+          <a title="何明光" href="javascript:redirectFileDownload(56654)">
+            
+            何明光
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園市政府客家事務局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P296-296
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          106
+          
+          .
+        </td>
+        <td>
+          <a title="黃文彬" href="javascript:redirectFileDownload(56655)">
+            
+            黃文彬
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺中市政府都市發展局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P297-297
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          107
+          
+          .
+        </td>
+        <td>
+          <a title="王時思" href="javascript:redirectFileDownload(56656)">
+            
+            王時思
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府
+          
+          /
+          
+          副市長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P298-298
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          108
+          
+          .
+        </td>
+        <td>
+          <a title="蔡慈榕" href="javascript:redirectFileDownload(56657)">
+            
+            蔡慈榕
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府財政局動產質借所
+          
+          /
+          
+          經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P299-299
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          109
+          
+          .
+        </td>
+        <td>
+          <a title="黃江祥" href="javascript:redirectFileDownload(56658)">
+            
+            黃江祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府消防局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P300-300
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          110
+          
+          .
+        </td>
+        <td>
+          <a title="林右昌" href="javascript:redirectFileDownload(56659)">
+            
+            林右昌
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          基隆市政府
+          
+          /
+          
+          市長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P301-301
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          111
+          
+          .
+        </td>
+        <td>
+          <a title="張耀懋" href="javascript:redirectFileDownload(56660)">
+            
+            張耀懋
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市政府衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P302-302
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          112
+          
+          .
+        </td>
+        <td>
+          <a title="范以端" href="javascript:redirectFileDownload(56661)">
+            
+            范以端
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央存款保險股份有限公司
+          
+          /
+          
+          副總經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P303-303
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          113
+          
+          .
+        </td>
+        <td>
+          <a title="賴明德" href="javascript:redirectFileDownload(56662)">
+            
+            賴明德
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣糖業股份有限公司砂糖事業部
+          
+          /
+          
+          副執行長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P304-304
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          114
+          
+          .
+        </td>
+        <td>
+          <a title="黃秋存" href="javascript:redirectFileDownload(56663)">
+            
+            黃秋存
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣糖業股份有限公司高雄分公司
+          
+          /
+          
+          經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P305-305
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          115
+          
+          .
+        </td>
+        <td>
+          <a title="蔡富豐" href="javascript:redirectFileDownload(56664)">
+            
+            蔡富豐
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣電力股份有限公司
+          
+          /
+          
+          副總經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P306-306
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          116
+          
+          .
+        </td>
+        <td>
+          <a title="蔡銘璋" href="javascript:redirectFileDownload(56665)">
+            
+            蔡銘璋
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣中油股份有限公司煉製研究所
+          
+          /
+          
+          副所長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P307-307
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          117
+          
+          .
+        </td>
+        <td>
+          <a title="吳義芳" href="javascript:redirectFileDownload(56666)">
+            
+            吳義芳
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣中油股份有限公司石化事業部
+          
+          /
+          
+          執行長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P308-308
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          118
+          
+          .
+        </td>
+        <td>
+          <a title="李皇章" href="javascript:redirectFileDownload(56667)">
+            
+            李皇章
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣中油股份有限公司天然氣事業部
+          
+          /
+          
+          副執行長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P309-313
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          119
+          
+          .
+        </td>
+        <td>
+          <a title="李丁來" href="javascript:redirectFileDownload(56668)">
+            
+            李丁來
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣自來水股份有限公司第六區管理處
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P314-314
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          120
+          
+          .
+        </td>
+        <td>
+          <a title="林裕翔" href="javascript:redirectFileDownload(56669)">
+            
+            林裕翔
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣自來水股份有限公司第八區管理處
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P315-315
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          121
+          
+          .
+        </td>
+        <td>
+          <a title="鄭超仁" href="javascript:redirectFileDownload(56670)">
+            
+            鄭超仁
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣自來水股份有限公司北區工程處
+          
+          /
+          
+          副處長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P316-316
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          122
+          
+          .
+        </td>
+        <td>
+          <a title="張政源" href="javascript:redirectFileDownload(56671)">
+            
+            張政源
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          交通部臺灣鐵路管理局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P317-317
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          123
+          
+          .
+        </td>
+        <td>
+          <a title="温純祥" href="javascript:redirectFileDownload(56672)">
+            
+            温純祥
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中華郵政股份有限公司臺東郵局
+          
+          /
+          
+          副理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P318-320
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          124
+          
+          .
+        </td>
+        <td>
+          <a title="王派峰" href="javascript:redirectFileDownload(56673)">
+            
+            王派峰
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺灣港務股份有限公司
+          
+          /
+          
+          副總經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P321-321
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          125
+          
+          .
+        </td>
+        <td>
+          <a title="許又銘" href="javascript:redirectFileDownload(56674)">
+            
+            許又銘
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園航空城股份有限公司
+          
+          /
+          
+          總經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P322-322
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          126
+          
+          .
+        </td>
+        <td>
+          <a title="黃及時" href="javascript:redirectFileDownload(56675)">
+            
+            黃及時
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺灣菸酒股份有限公司
+          
+          /
+          
+          總經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P323-323
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          127
+          
+          .
+        </td>
+        <td>
+          <a title="賴剛哲" href="javascript:redirectFileDownload(56676)">
+            
+            賴剛哲
+            
+          </a>
+        </td>
+        <td>
+          
+          153
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺灣菸酒股份有限公司臺北營業處
+          
+          /
+          
+          經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國108年
+			09月
+			30日</td>
+        <td>
+          
+          P324-327
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>

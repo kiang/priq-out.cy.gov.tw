@@ -1,0 +1,5597 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="form">
+  <h2>
+    <span>財產申報資料查詢</span>
+  </h2>
+  <script language="javascript">function clearStr(id){
+		if(document.getElementById(id).value=='請輸入查詢字串'){
+			document.getElementById(id).value="";
+		}
+	}
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	function whenSubmit(){
+		var str = document.getElementById("SubmitqueryStr").value;
+		if(str=="" || str=="請輸入查詢字串"){
+			alert('請輸入查詢字串');
+			return false;
+		}else{
+			document.getElementById('queryForm').action = './SpecificLP.jsp?ctNode=' + getUrlPara('ctNode');
+		}
+	}
+
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		window.location = address;
+	}
+
+	function redirectSpecific(itype){
+		document.getElementById("SpecialPubqueryCol").value = itype;
+		var address = "./SpecificLP.jsp?ctNode=" + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = address;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	//LP換頁js
+	function submitToSpecLp(nowPage,perPage){
+		//document.getElementById("nowPage").value = nowPage;
+		//document.getElementById("perPage").value = perPage;
+		document.getElementById("SpecialPubnowPage").value = nowPage;
+		document.getElementById("SpecialPubperPage").value = perPage;
+		var formAction = './SpecificLP.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function submitToBaseLp(queryStr,queryCol){
+		document.getElementById("LPForm_queryStr").value = queryStr;
+		document.getElementById("_LPFormqueryCol").value = queryCol;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("LPForm").action = formAction;
+		document.getElementById("LPForm").submit();
+	}</script>
+  <form name="LPForm" id="LPForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="queryStr" id="LPForm_queryStr" value="" />
+    <input type="hidden" name="queryCol" id="_LPFormqueryCol" value="period" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./SpecificLP.jsp">
+    <input type="hidden" name="nowPage" id="SpecialPubnowPage" value="1" />
+    <input type="hidden" name="perPage" id="SpecialPubperPage" value="500" />
+    <input type="hidden" name="queryStr" id="SpecialPubqueryStr" value="" />
+    <input type="hidden" name="queryCol" id="SpecialPubqueryCol" value="period" />
+  </form>
+  <form action="" onsubmit="return whenSubmit()" id="queryForm" method="post" name="queryForm">
+    <div class="lp">
+      <div class="category">
+        <ul>
+          <li>
+            <span>
+              <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+            </span>
+          </li>
+          <li class="here">
+            <span>
+              <a href="javascript:redirectSpecific('period')">專刊期別</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a href="javascript:redirectSpecific('dept')">服務機關</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a href="javascript:redirectSpecific('title')">職稱</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <a href="javascript:redirectSpecific('name')">姓名</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <table summary="財產申報專刊查詢">
+      <caption />
+      <tbody>
+        <tr>
+          <td>
+            <input type="hidden" name="queryCol" id="SubmitqueryCol" value="period" />
+            <input type="text" name="queryStr" id="SubmitqueryStr" value="請輸入查詢字串" onclick="clearStr('SubmitqueryStr')" />
+            <input type="submit" value="送出" class="btngray" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <br />
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        332
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToSpecLp(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToSpecLp(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToSpecLp(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示300筆" href="javascript:submitToSpecLp(1,300);">
+            
+            300
+            
+          </a>
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <br />
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          專刊期別
+          
+        </th>
+        <th scope="col">
+          
+          專刊類別
+          
+        </th>
+        <th scope="col">
+          
+          專刊日期
+          
+        </th>
+        <th scope="col">
+          
+          筆數
+          
+        </th>
+        <th scope="col">
+          
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="191" href="javascript:submitToBaseLp('191_01','period')">191</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				05月
+				27日</td>
+        <td>145</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="190" href="javascript:submitToBaseLp('190_01','period')">190</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				05月
+				20日</td>
+        <td>147</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="189" href="javascript:submitToBaseLp('189_01','period')">189</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				05月
+				13日</td>
+        <td>138</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="188" href="javascript:submitToBaseLp('188_01','period')">188</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				05月
+				06日</td>
+        <td>123</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="187" href="javascript:submitToBaseLp('187_01','period')">187</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				04月
+				27日</td>
+        <td>119</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="186" href="javascript:submitToBaseLp('186_01','period')">186</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				04月
+				20日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="185" href="javascript:submitToBaseLp('185_01','period')">185</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				04月
+				13日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="184" href="javascript:submitToBaseLp('184_01','period')">184</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				03月
+				23日</td>
+        <td>83</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="183" href="javascript:submitToBaseLp('183_01','period')">183</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				03月
+				16日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="182" href="javascript:submitToBaseLp('182_01','period')">182</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國111年
+				03月
+				09日</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="181" href="javascript:submitToBaseLp('181_01','period')">181</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				12月
+				08日</td>
+        <td>126</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="180" href="javascript:submitToBaseLp('180_01','period')">180</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				08月
+				24日</td>
+        <td>123</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="179" href="javascript:submitToBaseLp('179_01','period')">179</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				07月
+				09日</td>
+        <td>117</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="178" href="javascript:submitToBaseLp('178_01','period')">178</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				05月
+				31日</td>
+        <td>113</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="177" href="javascript:submitToBaseLp('177_01','period')">177</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				05月
+				24日</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="176" href="javascript:submitToBaseLp('176_01','period')">176</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				05月
+				17日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="175" href="javascript:submitToBaseLp('175_01','period')">175</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				05月
+				10日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="174" href="javascript:submitToBaseLp('174_01','period')">174</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				04月
+				30日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="173" href="javascript:submitToBaseLp('173_01','period')">173</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				04月
+				22日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="172" href="javascript:submitToBaseLp('172_01','period')">172</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				04月
+				06日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="171" href="javascript:submitToBaseLp('171_01','period')">171</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				03月
+				05日</td>
+        <td>105</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="170" href="javascript:submitToBaseLp('170_01','period')">170</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國110年
+				01月
+				29日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="169" href="javascript:submitToBaseLp('169_01','period')">169</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				12月
+				24日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="168" href="javascript:submitToBaseLp('168_01','period')">168</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				12月
+				08日</td>
+        <td>115</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="167" href="javascript:submitToBaseLp('167_01','period')">167</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				10月
+				16日</td>
+        <td>124</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="166" href="javascript:submitToBaseLp('166_01','period')">166</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				09月
+				18日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="165" href="javascript:submitToBaseLp('165_01','period')">165</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				08月
+				31日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="164" href="javascript:submitToBaseLp('164_01','period')">164</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				07月
+				03日</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="163" href="javascript:submitToBaseLp('163_01','period')">163</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				05月
+				29日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="162" href="javascript:submitToBaseLp('162_01','period')">162</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				05月
+				22日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="161" href="javascript:submitToBaseLp('161_01','period')">161</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				05月
+				13日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="160" href="javascript:submitToBaseLp('160_01','period')">160</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				05月
+				05日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="159" href="javascript:submitToBaseLp('159_01','period')">159</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				04月
+				17日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="158" href="javascript:submitToBaseLp('158_01','period')">158</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				03月
+				31日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="157" href="javascript:submitToBaseLp('157_01','period')">157</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				03月
+				16日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="156" href="javascript:submitToBaseLp('156_01','period')">156</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				02月
+				24日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="155" href="javascript:submitToBaseLp('155_01','period')">155</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國109年
+				01月
+				22日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="154" href="javascript:submitToBaseLp('154_01','period')">154</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				10月
+				30日</td>
+        <td>121</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="153" href="javascript:submitToBaseLp('153_01','period')">153</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				09月
+				30日</td>
+        <td>127</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="152" href="javascript:submitToBaseLp('152_01','period')">152</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				08月
+				23日</td>
+        <td>105</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="151" href="javascript:submitToBaseLp('151_01','period')">151</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				07月
+				22日</td>
+        <td>111</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="150" href="javascript:submitToBaseLp('150_01','period')">150</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				06月
+				14日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="149" href="javascript:submitToBaseLp('149_01','period')">149</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				05月
+				31日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="148" href="javascript:submitToBaseLp('148_01','period')">148</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				05月
+				24日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="147" href="javascript:submitToBaseLp('147_01','period')">147</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				05月
+				16日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="146" href="javascript:submitToBaseLp('146_01','period')">146</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				05月
+				09日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="145" href="javascript:submitToBaseLp('145_01','period')">145</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				04月
+				26日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="144" href="javascript:submitToBaseLp('144_01','period')">144</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				04月
+				16日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="143" href="javascript:submitToBaseLp('143_01','period')">143</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				03月
+				29日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="142" href="javascript:submitToBaseLp('142_01','period')">142</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				03月
+				15日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="141" href="javascript:submitToBaseLp('141_01','period')">141</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				02月
+				27日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="140" href="javascript:submitToBaseLp('140_01','period')">140</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國108年
+				01月
+				31日</td>
+        <td>128</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="138" href="javascript:submitToBaseLp('138_01','period')">138</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				11月
+				16日</td>
+        <td>137</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="137" href="javascript:submitToBaseLp('137_01','period')">137</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				08月
+				01日</td>
+        <td>139</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="136" href="javascript:submitToBaseLp('136_01','period')">136</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				06月
+				22日</td>
+        <td>136</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="135" href="javascript:submitToBaseLp('135_01','period')">135</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				05月
+				31日</td>
+        <td>168</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="134" href="javascript:submitToBaseLp('134_01','period')">134</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				05月
+				24日</td>
+        <td>137</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="133" href="javascript:submitToBaseLp('133_01','period')">133</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				05月
+				16日</td>
+        <td>142</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="132" href="javascript:submitToBaseLp('132_01','period')">132</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				05月
+				08日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="131" href="javascript:submitToBaseLp('131_01','period')">131</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				04月
+				27日</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="130" href="javascript:submitToBaseLp('130_01','period')">130</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				04月
+				16日</td>
+        <td>121</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="129" href="javascript:submitToBaseLp('129_01','period')">129</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				03月
+				30日</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="128" href="javascript:submitToBaseLp('128_01','period')">128</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				03月
+				14日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="127" href="javascript:submitToBaseLp('127_01','period')">127</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國107年
+				02月
+				14日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="125" href="javascript:submitToBaseLp('125_01','period')">125</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				09月
+				20日</td>
+        <td>95</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="124" href="javascript:submitToBaseLp('124_01','period')">124</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				06月
+				29日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="123" href="javascript:submitToBaseLp('123_01','period')">123</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				05月
+				25日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="122" href="javascript:submitToBaseLp('122_01','period')">122</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				05月
+				12日</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="121" href="javascript:submitToBaseLp('121_01','period')">121</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				05月
+				05日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="120" href="javascript:submitToBaseLp('120_01','period')">120</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				04月
+				28日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="119" href="javascript:submitToBaseLp('119_01','period')">119</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				04月
+				19日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="118" href="javascript:submitToBaseLp('118_01','period')">118</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				03月
+				23日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="117" href="javascript:submitToBaseLp('117_01','period')">117</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				03月
+				03日</td>
+        <td>118</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="116" href="javascript:submitToBaseLp('116_01','period')">116</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				02月
+				15日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="115" href="javascript:submitToBaseLp('115_01','period')">115</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國106年
+				01月
+				24日</td>
+        <td>129</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="113" href="javascript:submitToBaseLp('113_01','period')">113</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				11月
+				10日</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="112" href="javascript:submitToBaseLp('112_01','period')">112</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				10月
+				06日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="111" href="javascript:submitToBaseLp('111_01','period')">111</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				08月
+				31日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="110" href="javascript:submitToBaseLp('110_01','period')">110</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				08月
+				12日</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="108" href="javascript:submitToBaseLp('108_01','period')">108</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				07月
+				01日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          81
+          
+          .
+        </td>
+        <td>
+          <a title="107" href="javascript:submitToBaseLp('107_01','period')">107</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				05月
+				18日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          82
+          
+          .
+        </td>
+        <td>
+          <a title="106" href="javascript:submitToBaseLp('106_01','period')">106</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				05月
+				06日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          83
+          
+          .
+        </td>
+        <td>
+          <a title="105" href="javascript:submitToBaseLp('105_01','period')">105</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				04月
+				26日</td>
+        <td>114</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          84
+          
+          .
+        </td>
+        <td>
+          <a title="104" href="javascript:submitToBaseLp('104_01','period')">104</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				04月
+				15日</td>
+        <td>121</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          85
+          
+          .
+        </td>
+        <td>
+          <a title="103" href="javascript:submitToBaseLp('103_01','period')">103</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				04月
+				08日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          86
+          
+          .
+        </td>
+        <td>
+          <a title="102" href="javascript:submitToBaseLp('102_01','period')">102</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				03月
+				25日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          87
+          
+          .
+        </td>
+        <td>
+          <a title="101" href="javascript:submitToBaseLp('101_01','period')">101</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				03月
+				22日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          88
+          
+          .
+        </td>
+        <td>
+          <a title="100" href="javascript:submitToBaseLp('100_01','period')">100</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				02月
+				24日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          89
+          
+          .
+        </td>
+        <td>
+          <a title="99" href="javascript:submitToBaseLp('99_01','period')">99</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國105年
+				01月
+				21日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          90
+          
+          .
+        </td>
+        <td>
+          <a title="98" href="javascript:submitToBaseLp('98_01','period')">98</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				11月
+				25日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          91
+          
+          .
+        </td>
+        <td>
+          <a title="89" href="javascript:submitToBaseLp('89_01','period')">89</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				08月
+				27日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          92
+          
+          .
+        </td>
+        <td>
+          <a title="88" href="javascript:submitToBaseLp('88_01','period')">88</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				07月
+				17日</td>
+        <td>124</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          93
+          
+          .
+        </td>
+        <td>
+          <a title="87" href="javascript:submitToBaseLp('87_01','period')">87</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				06月
+				26日</td>
+        <td>129</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          94
+          
+          .
+        </td>
+        <td>
+          <a title="86" href="javascript:submitToBaseLp('86_01','period')">86</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				06月
+				05日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          95
+          
+          .
+        </td>
+        <td>
+          <a title="85" href="javascript:submitToBaseLp('85_01','period')">85</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				05月
+				08日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          96
+          
+          .
+        </td>
+        <td>
+          <a title="84" href="javascript:submitToBaseLp('84_01','period')">84</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				04月
+				24日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          97
+          
+          .
+        </td>
+        <td>
+          <a title="83" href="javascript:submitToBaseLp('83_01','period')">83</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				04月
+				17日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          98
+          
+          .
+        </td>
+        <td>
+          <a title="82" href="javascript:submitToBaseLp('82_01','period')">82</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				04月
+				10日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          99
+          
+          .
+        </td>
+        <td>
+          <a title="81" href="javascript:submitToBaseLp('81_01','period')">81</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				04月
+				02日</td>
+        <td>121</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          100
+          
+          .
+        </td>
+        <td>
+          <a title="80" href="javascript:submitToBaseLp('80_01','period')">80</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				03月
+				26日</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          101
+          
+          .
+        </td>
+        <td>
+          <a title="79" href="javascript:submitToBaseLp('79_01','period')">79</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				03月
+				19日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          102
+          
+          .
+        </td>
+        <td>
+          <a title="78" href="javascript:submitToBaseLp('78_01','period')">78</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				03月
+				12日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          103
+          
+          .
+        </td>
+        <td>
+          <a title="77" href="javascript:submitToBaseLp('77_01','period')">77</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				02月
+				13日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          104
+          
+          .
+        </td>
+        <td>
+          <a title="76" href="javascript:submitToBaseLp('76_01','period')">76</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國104年
+				01月
+				30日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          105
+          
+          .
+        </td>
+        <td>
+          <a title="75" href="javascript:submitToBaseLp('75_01','period')">75</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				12月
+				17日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          106
+          
+          .
+        </td>
+        <td>
+          <a title="74" href="javascript:submitToBaseLp('74_01','period')">74</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				11月
+				28日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          107
+          
+          .
+        </td>
+        <td>
+          <a title="72" href="javascript:submitToBaseLp('72_01','period')">72</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				11月
+				07日</td>
+        <td>130</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          108
+          
+          .
+        </td>
+        <td>
+          <a title="71" href="javascript:submitToBaseLp('71_01','period')">71</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				10月
+				31日</td>
+        <td>142</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          109
+          
+          .
+        </td>
+        <td>
+          <a title="70" href="javascript:submitToBaseLp('70_01','period')">70</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				10月
+				24日</td>
+        <td>113</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          110
+          
+          .
+        </td>
+        <td>
+          <a title="69" href="javascript:submitToBaseLp('69_01','period')">69</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				09月
+				30日</td>
+        <td>126</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          111
+          
+          .
+        </td>
+        <td>
+          <a title="68" href="javascript:submitToBaseLp('68_01','period')">68</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				08月
+				29日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          112
+          
+          .
+        </td>
+        <td>
+          <a title="67" href="javascript:submitToBaseLp('67_01','period')">67</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				08月
+				08日</td>
+        <td>120</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          113
+          
+          .
+        </td>
+        <td>
+          <a title="66" href="javascript:submitToBaseLp('66_01','period')">66</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				07月
+				25日</td>
+        <td>117</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          114
+          
+          .
+        </td>
+        <td>
+          <a title="65" href="javascript:submitToBaseLp('65_01','period')">65</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				07月
+				03日</td>
+        <td>120</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          115
+          
+          .
+        </td>
+        <td>
+          <a title="64" href="javascript:submitToBaseLp('64_01','period')">64</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				06月
+				13日</td>
+        <td>105</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          116
+          
+          .
+        </td>
+        <td>
+          <a title="63" href="javascript:submitToBaseLp('63_01','period')">63</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				05月
+				21日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          117
+          
+          .
+        </td>
+        <td>
+          <a title="62" href="javascript:submitToBaseLp('62_01','period')">62</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				04月
+				17日</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          118
+          
+          .
+        </td>
+        <td>
+          <a title="61" href="javascript:submitToBaseLp('61_01','period')">61</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國103年
+				03月
+				27日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          119
+          
+          .
+        </td>
+        <td>
+          <a title="60" href="javascript:submitToBaseLp('60_01','period')">60</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				12月
+				25日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          120
+          
+          .
+        </td>
+        <td>
+          <a title="58" href="javascript:submitToBaseLp('58_01','period')">58</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				09月
+				27日</td>
+        <td>134</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          121
+          
+          .
+        </td>
+        <td>
+          <a title="57" href="javascript:submitToBaseLp('57_01','period')">57</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				08月
+				30日</td>
+        <td>128</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          122
+          
+          .
+        </td>
+        <td>
+          <a title="56" href="javascript:submitToBaseLp('56_01','period')">56</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				07月
+				31日</td>
+        <td>121</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          123
+          
+          .
+        </td>
+        <td>
+          <a title="55" href="javascript:submitToBaseLp('55_01','period')">55</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				07月
+				17日</td>
+        <td>122</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          124
+          
+          .
+        </td>
+        <td>
+          <a title="54" href="javascript:submitToBaseLp('54_01','period')">54</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				06月
+				07日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          125
+          
+          .
+        </td>
+        <td>
+          <a title="53" href="javascript:submitToBaseLp('53_01','period')">53</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				05月
+				15日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          126
+          
+          .
+        </td>
+        <td>
+          <a title="52" href="javascript:submitToBaseLp('52_01','period')">52</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				04月
+				26日</td>
+        <td>111</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          127
+          
+          .
+        </td>
+        <td>
+          <a title="51" href="javascript:submitToBaseLp('51_01','period')">51</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				04月
+				10日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          128
+          
+          .
+        </td>
+        <td>
+          <a title="50" href="javascript:submitToBaseLp('50_01','period')">50</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				03月
+				22日</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          129
+          
+          .
+        </td>
+        <td>
+          <a title="49" href="javascript:submitToBaseLp('49_01','period')">49</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				12月
+				28日</td>
+        <td>152</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          130
+          
+          .
+        </td>
+        <td>
+          <a title="48" href="javascript:submitToBaseLp('48_01','period')">48</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				12月
+				25日</td>
+        <td>117</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          131
+          
+          .
+        </td>
+        <td>
+          <a title="47" href="javascript:submitToBaseLp('47_01','period')">47</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				11月
+				27日</td>
+        <td>120</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          132
+          
+          .
+        </td>
+        <td>
+          <a title="44" href="javascript:submitToBaseLp('44_01','period')">44</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				10月
+				30日</td>
+        <td>123</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          133
+          
+          .
+        </td>
+        <td>
+          <a title="43" href="javascript:submitToBaseLp('43_01','period')">43</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				10月
+				23日</td>
+        <td>130</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          134
+          
+          .
+        </td>
+        <td>
+          <a title="42" href="javascript:submitToBaseLp('42_01','period')">42</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				09月
+				27日</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          135
+          
+          .
+        </td>
+        <td>
+          <a title="41" href="javascript:submitToBaseLp('41_01','period')">41</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				08月
+				31日</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          136
+          
+          .
+        </td>
+        <td>
+          <a title="40" href="javascript:submitToBaseLp('40_01','period')">40</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				08月
+				21日</td>
+        <td>71</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          137
+          
+          .
+        </td>
+        <td>
+          <a title="39" href="javascript:submitToBaseLp('39_01','period')">39</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				07月
+				31日</td>
+        <td>116</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          138
+          
+          .
+        </td>
+        <td>
+          <a title="38" href="javascript:submitToBaseLp('38_01','period')">38</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				06月
+				29日</td>
+        <td>76</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          139
+          
+          .
+        </td>
+        <td>
+          <a title="37" href="javascript:submitToBaseLp('37_01','period')">37</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				05月
+				31日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          140
+          
+          .
+        </td>
+        <td>
+          <a title="36" href="javascript:submitToBaseLp('36_01','period')">36</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				05月
+				03日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          141
+          
+          .
+        </td>
+        <td>
+          <a title="35" href="javascript:submitToBaseLp('35_01','period')">35</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				04月
+				05日</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          142
+          
+          .
+        </td>
+        <td>
+          <a title="34" href="javascript:submitToBaseLp('34_01','period')">34</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國101年
+				03月
+				26日</td>
+        <td>139</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          143
+          
+          .
+        </td>
+        <td>
+          <a title="33" href="javascript:submitToBaseLp('33_01','period')">33</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國102年
+				09月
+				28日</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          144
+          
+          .
+        </td>
+        <td>
+          <a title="33" href="javascript:submitToBaseLp('33_01','period')">33</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				09月
+				28日</td>
+        <td>141</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          145
+          
+          .
+        </td>
+        <td>
+          <a title="31" href="javascript:submitToBaseLp('31_01','period')">31</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				08月
+				11日</td>
+        <td>58</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          146
+          
+          .
+        </td>
+        <td>
+          <a title="30" href="javascript:submitToBaseLp('30_01','period')">30</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				08月
+				02日</td>
+        <td>111</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          147
+          
+          .
+        </td>
+        <td>
+          <a title="29" href="javascript:submitToBaseLp('29_01','period')">29</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				07月
+				15日</td>
+        <td>113</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          148
+          
+          .
+        </td>
+        <td>
+          <a title="28" href="javascript:submitToBaseLp('28_01','period')">28</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				07月
+				06日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          149
+          
+          .
+        </td>
+        <td>
+          <a title="25" href="javascript:submitToBaseLp('25_01','period')">25</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				06月
+				20日</td>
+        <td>116</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          150
+          
+          .
+        </td>
+        <td>
+          <a title="24" href="javascript:submitToBaseLp('24_01','period')">24</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				05月
+				31日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          151
+          
+          .
+        </td>
+        <td>
+          <a title="23" href="javascript:submitToBaseLp('23_01','period')">23</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				05月
+				16日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          152
+          
+          .
+        </td>
+        <td>
+          <a title="22" href="javascript:submitToBaseLp('22_01','period')">22</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				05月
+				05日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          153
+          
+          .
+        </td>
+        <td>
+          <a title="21" href="javascript:submitToBaseLp('21_01','period')">21</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				04月
+				28日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          154
+          
+          .
+        </td>
+        <td>
+          <a title="20" href="javascript:submitToBaseLp('20_01','period')">20</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				04月
+				17日</td>
+        <td>115</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          155
+          
+          .
+        </td>
+        <td>
+          <a title="19" href="javascript:submitToBaseLp('19_01','period')">19</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國100年
+				03月
+				15日</td>
+        <td>132</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          156
+          
+          .
+        </td>
+        <td>
+          <a title="18" href="javascript:submitToBaseLp('18_01','period')">18</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				12月
+				16日</td>
+        <td>144</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          157
+          
+          .
+        </td>
+        <td>
+          <a title="15" href="javascript:submitToBaseLp('15_01','period')">15</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				11月
+				04日</td>
+        <td>113</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          158
+          
+          .
+        </td>
+        <td>
+          <a title="14" href="javascript:submitToBaseLp('14_01','period')">14</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				09月
+				08日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          159
+          
+          .
+        </td>
+        <td>
+          <a title="13" href="javascript:submitToBaseLp('13_01','period')">13</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				08月
+				26日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          160
+          
+          .
+        </td>
+        <td>
+          <a title="12" href="javascript:submitToBaseLp('12_01','period')">12</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				08月
+				23日</td>
+        <td>125</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          161
+          
+          .
+        </td>
+        <td>
+          <a title="11" href="javascript:submitToBaseLp('11_01','period')">11</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				08月
+				11日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          162
+          
+          .
+        </td>
+        <td>
+          <a title="10" href="javascript:submitToBaseLp('10_01','period')">10</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				07月
+				15日</td>
+        <td>113</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          163
+          
+          .
+        </td>
+        <td>
+          <a title="9" href="javascript:submitToBaseLp('9_01','period')">9</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				07月
+				23日</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          164
+          
+          .
+        </td>
+        <td>
+          <a title="5" href="javascript:submitToBaseLp('5_01','period')">5</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				07月
+				02日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          165
+          
+          .
+        </td>
+        <td>
+          <a title="4" href="javascript:submitToBaseLp('4_01','period')">4</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				06月
+				30日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          166
+          
+          .
+        </td>
+        <td>
+          <a title="3" href="javascript:submitToBaseLp('3_01','period')">3</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				06月
+				10日</td>
+        <td>127</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          167
+          
+          .
+        </td>
+        <td>
+          <a title="2" href="javascript:submitToBaseLp('2_01','period')">2</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				06月
+				02日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          168
+          
+          .
+        </td>
+        <td>
+          <a title="1" href="javascript:submitToBaseLp('1_01','period')">1</a>
+        </td>
+        <td>廉政專刊</td>
+        <td>民國99年
+				05月
+				28日</td>
+        <td>95</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          169
+          
+          .
+        </td>
+        <td>
+          <a title="163" href="javascript:submitToBaseLp('163_02','period')">163</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國99年
+				01月
+				07日</td>
+        <td>156</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          170
+          
+          .
+        </td>
+        <td>
+          <a title="162" href="javascript:submitToBaseLp('162_02','period')">162</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				11月
+				06日</td>
+        <td>232</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          171
+          
+          .
+        </td>
+        <td>
+          <a title="161" href="javascript:submitToBaseLp('161_02','period')">161</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				07月
+				08日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          172
+          
+          .
+        </td>
+        <td>
+          <a title="160" href="javascript:submitToBaseLp('160_02','period')">160</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				06月
+				30日</td>
+        <td>116</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          173
+          
+          .
+        </td>
+        <td>
+          <a title="159" href="javascript:submitToBaseLp('159_02','period')">159</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				06月
+				19日</td>
+        <td>83</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          174
+          
+          .
+        </td>
+        <td>
+          <a title="158" href="javascript:submitToBaseLp('158_02','period')">158</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				06月
+				09日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          175
+          
+          .
+        </td>
+        <td>
+          <a title="157" href="javascript:submitToBaseLp('157_02','period')">157</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				06月
+				04日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          176
+          
+          .
+        </td>
+        <td>
+          <a title="156" href="javascript:submitToBaseLp('156_02','period')">156</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				05月
+				25日</td>
+        <td>95</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          177
+          
+          .
+        </td>
+        <td>
+          <a title="155" href="javascript:submitToBaseLp('155_02','period')">155</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				05月
+				21日</td>
+        <td>114</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          178
+          
+          .
+        </td>
+        <td>
+          <a title="154" href="javascript:submitToBaseLp('154_02','period')">154</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				05月
+				11日</td>
+        <td>116</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          179
+          
+          .
+        </td>
+        <td>
+          <a title="153" href="javascript:submitToBaseLp('153_02','period')">153</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國98年
+				05月
+				05日</td>
+        <td>108</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          180
+          
+          .
+        </td>
+        <td>
+          <a title="152" href="javascript:submitToBaseLp('152_02','period')">152</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				12月
+				10日</td>
+        <td>32</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          181
+          
+          .
+        </td>
+        <td>
+          <a title="151" href="javascript:submitToBaseLp('151_02','period')">151</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				11月
+				28日</td>
+        <td>74</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          182
+          
+          .
+        </td>
+        <td>
+          <a title="150" href="javascript:submitToBaseLp('150_02','period')">150</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				06月
+				27日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          183
+          
+          .
+        </td>
+        <td>
+          <a title="149" href="javascript:submitToBaseLp('149_02','period')">149</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				05月
+				15日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          184
+          
+          .
+        </td>
+        <td>
+          <a title="148" href="javascript:submitToBaseLp('148_02','period')">148</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				05月
+				05日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          185
+          
+          .
+        </td>
+        <td>
+          <a title="147" href="javascript:submitToBaseLp('147_02','period')">147</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				04月
+				29日</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          186
+          
+          .
+        </td>
+        <td>
+          <a title="146" href="javascript:submitToBaseLp('146_02','period')">146</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				04月
+				28日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          187
+          
+          .
+        </td>
+        <td>
+          <a title="145" href="javascript:submitToBaseLp('145_02','period')">145</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				04月
+				10日</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          188
+          
+          .
+        </td>
+        <td>
+          <a title="144" href="javascript:submitToBaseLp('144_02','period')">144</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				04月
+				02日</td>
+        <td>119</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          189
+          
+          .
+        </td>
+        <td>
+          <a title="143" href="javascript:submitToBaseLp('143_02','period')">143</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國97年
+				03月
+				26日</td>
+        <td>107</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          190
+          
+          .
+        </td>
+        <td>
+          <a title="142" href="javascript:submitToBaseLp('142_02','period')">142</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				11月
+				29日</td>
+        <td>118</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          191
+          
+          .
+        </td>
+        <td>
+          <a title="141" href="javascript:submitToBaseLp('141_02','period')">141</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				07月
+				02日</td>
+        <td>117</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          192
+          
+          .
+        </td>
+        <td>
+          <a title="140" href="javascript:submitToBaseLp('140_02','period')">140</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				05月
+				22日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          193
+          
+          .
+        </td>
+        <td>
+          <a title="139" href="javascript:submitToBaseLp('139_02','period')">139</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				05月
+				10日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          194
+          
+          .
+        </td>
+        <td>
+          <a title="138" href="javascript:submitToBaseLp('138_02','period')">138</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				04月
+				30日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          195
+          
+          .
+        </td>
+        <td>
+          <a title="137" href="javascript:submitToBaseLp('137_02','period')">137</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				04月
+				24日</td>
+        <td>82</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          196
+          
+          .
+        </td>
+        <td>
+          <a title="136" href="javascript:submitToBaseLp('136_02','period')">136</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				04月
+				13日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          197
+          
+          .
+        </td>
+        <td>
+          <a title="135" href="javascript:submitToBaseLp('135_02','period')">135</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國96年
+				03月
+				30日</td>
+        <td>122</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          198
+          
+          .
+        </td>
+        <td>
+          <a title="134" href="javascript:submitToBaseLp('134_02','period')">134</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				12月
+				28日</td>
+        <td>151</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          199
+          
+          .
+        </td>
+        <td>
+          <a title="133" href="javascript:submitToBaseLp('133_02','period')">133</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				08月
+				16日</td>
+        <td>115</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          200
+          
+          .
+        </td>
+        <td>
+          <a title="132" href="javascript:submitToBaseLp('132_02','period')">132</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				07月
+				20日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          201
+          
+          .
+        </td>
+        <td>
+          <a title="131" href="javascript:submitToBaseLp('131_02','period')">131</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				07月
+				05日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          202
+          
+          .
+        </td>
+        <td>
+          <a title="130" href="javascript:submitToBaseLp('130_02','period')">130</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				06月
+				02日</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          203
+          
+          .
+        </td>
+        <td>
+          <a title="129" href="javascript:submitToBaseLp('129_02','period')">129</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				04月
+				25日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          204
+          
+          .
+        </td>
+        <td>
+          <a title="128" href="javascript:submitToBaseLp('128_02','period')">128</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				03月
+				28日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          205
+          
+          .
+        </td>
+        <td>
+          <a title="127" href="javascript:submitToBaseLp('127_02','period')">127</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國95年
+				03月
+				02日</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          206
+          
+          .
+        </td>
+        <td>
+          <a title="126" href="javascript:submitToBaseLp('126_02','period')">126</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				09月
+				02日</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          207
+          
+          .
+        </td>
+        <td>
+          <a title="125" href="javascript:submitToBaseLp('125_02','period')">125</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				06月
+				21日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          208
+          
+          .
+        </td>
+        <td>
+          <a title="124" href="javascript:submitToBaseLp('124_02','period')">124</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				06月
+				08日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          209
+          
+          .
+        </td>
+        <td>
+          <a title="123" href="javascript:submitToBaseLp('123_02','period')">123</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				05月
+				12日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          210
+          
+          .
+        </td>
+        <td>
+          <a title="122" href="javascript:submitToBaseLp('122_02','period')">122</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				04月
+				22日</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          211
+          
+          .
+        </td>
+        <td>
+          <a title="121" href="javascript:submitToBaseLp('121_02','period')">121</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				04月
+				04日</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          212
+          
+          .
+        </td>
+        <td>
+          <a title="120" href="javascript:submitToBaseLp('120_02','period')">120</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				03月
+				08日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          213
+          
+          .
+        </td>
+        <td>
+          <a title="119" href="javascript:submitToBaseLp('119_02','period')">119</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國94年
+				02月
+				18日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          214
+          
+          .
+        </td>
+        <td>
+          <a title="118" href="javascript:submitToBaseLp('118_02','period')">118</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				11月
+				26日</td>
+        <td>106</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          215
+          
+          .
+        </td>
+        <td>
+          <a title="117" href="javascript:submitToBaseLp('117_02','period')">117</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				06月
+				02日</td>
+        <td>61</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          216
+          
+          .
+        </td>
+        <td>
+          <a title="116" href="javascript:submitToBaseLp('116_02','period')">116</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				05月
+				05日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          217
+          
+          .
+        </td>
+        <td>
+          <a title="115" href="javascript:submitToBaseLp('115_02','period')">115</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				04月
+				14日</td>
+        <td>93</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          218
+          
+          .
+        </td>
+        <td>
+          <a title="114" href="javascript:submitToBaseLp('114_02','period')">114</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				03月
+				23日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          219
+          
+          .
+        </td>
+        <td>
+          <a title="113" href="javascript:submitToBaseLp('113_02','period')">113</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				03月
+				15日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          220
+          
+          .
+        </td>
+        <td>
+          <a title="112" href="javascript:submitToBaseLp('112_02','period')">112</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				03月
+				05日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          221
+          
+          .
+        </td>
+        <td>
+          <a title="111" href="javascript:submitToBaseLp('111_02','period')">111</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國93年
+				02月
+				25日</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          222
+          
+          .
+        </td>
+        <td>
+          <a title="110" href="javascript:submitToBaseLp('110_02','period')">110</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				08月
+				21日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          223
+          
+          .
+        </td>
+        <td>
+          <a title="109" href="javascript:submitToBaseLp('109_02','period')">109</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				05月
+				30日</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          224
+          
+          .
+        </td>
+        <td>
+          <a title="108" href="javascript:submitToBaseLp('108_02','period')">108</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				05月
+				15日</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          225
+          
+          .
+        </td>
+        <td>
+          <a title="107" href="javascript:submitToBaseLp('107_02','period')">107</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				03月
+				26日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          226
+          
+          .
+        </td>
+        <td>
+          <a title="106" href="javascript:submitToBaseLp('106_02','period')">106</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				02月
+				24日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          227
+          
+          .
+        </td>
+        <td>
+          <a title="105" href="javascript:submitToBaseLp('105_02','period')">105</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國92年
+				02月
+				12日</td>
+        <td>83</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          228
+          
+          .
+        </td>
+        <td>
+          <a title="104" href="javascript:submitToBaseLp('104_02','period')">104</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				11月
+				25日</td>
+        <td>46</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          229
+          
+          .
+        </td>
+        <td>
+          <a title="103" href="javascript:submitToBaseLp('103_02','period')">103</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				07月
+				31日</td>
+        <td>51</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          230
+          
+          .
+        </td>
+        <td>
+          <a title="102" href="javascript:submitToBaseLp('102_02','period')">102</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				06月
+				14日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          231
+          
+          .
+        </td>
+        <td>
+          <a title="101" href="javascript:submitToBaseLp('101_02','period')">101</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				05月
+				28日</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          232
+          
+          .
+        </td>
+        <td>
+          <a title="100" href="javascript:submitToBaseLp('100_02','period')">100</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				04月
+				08日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          233
+          
+          .
+        </td>
+        <td>
+          <a title="99" href="javascript:submitToBaseLp('99_02','period')">99</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				03月
+				29日</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          234
+          
+          .
+        </td>
+        <td>
+          <a title="98" href="javascript:submitToBaseLp('98_02','period')">98</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				03月
+				20日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          235
+          
+          .
+        </td>
+        <td>
+          <a title="97" href="javascript:submitToBaseLp('97_02','period')">97</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				03月
+				14日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          236
+          
+          .
+        </td>
+        <td>
+          <a title="96" href="javascript:submitToBaseLp('96_02','period')">96</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				03月
+				06日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          237
+          
+          .
+        </td>
+        <td>
+          <a title="95" href="javascript:submitToBaseLp('95_02','period')">95</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國91年
+				02月
+				06日</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          238
+          
+          .
+        </td>
+        <td>
+          <a title="94" href="javascript:submitToBaseLp('94_02','period')">94</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				07月
+				16日</td>
+        <td>26</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          239
+          
+          .
+        </td>
+        <td>
+          <a title="93" href="javascript:submitToBaseLp('93_02','period')">93</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				04月
+				25日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          240
+          
+          .
+        </td>
+        <td>
+          <a title="92" href="javascript:submitToBaseLp('92_02','period')">92</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				04月
+				12日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          241
+          
+          .
+        </td>
+        <td>
+          <a title="91" href="javascript:submitToBaseLp('91_02','period')">91</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				03月
+				28日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          242
+          
+          .
+        </td>
+        <td>
+          <a title="90" href="javascript:submitToBaseLp('90_02','period')">90</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				03月
+				21日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          243
+          
+          .
+        </td>
+        <td>
+          <a title="89" href="javascript:submitToBaseLp('89_02','period')">89</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				03月
+				08日</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          244
+          
+          .
+        </td>
+        <td>
+          <a title="88" href="javascript:submitToBaseLp('88_02','period')">88</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國90年
+				02月
+				16日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          245
+          
+          .
+        </td>
+        <td>
+          <a title="87" href="javascript:submitToBaseLp('87_02','period')">87</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				12月
+				20日</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          246
+          
+          .
+        </td>
+        <td>
+          <a title="86" href="javascript:submitToBaseLp('86_02','period')">86</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				11月
+				01日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          247
+          
+          .
+        </td>
+        <td>
+          <a title="85" href="javascript:submitToBaseLp('85_02','period')">85</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				07月
+				21日</td>
+        <td>89</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          248
+          
+          .
+        </td>
+        <td>
+          <a title="84" href="javascript:submitToBaseLp('84_02','period')">84</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				06月
+				27日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          249
+          
+          .
+        </td>
+        <td>
+          <a title="83" href="javascript:submitToBaseLp('83_02','period')">83</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				30日</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          250
+          
+          .
+        </td>
+        <td>
+          <a title="82" href="javascript:submitToBaseLp('82_02','period')">82</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				20日</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          251
+          
+          .
+        </td>
+        <td>
+          <a title="81" href="javascript:submitToBaseLp('81_02','period')">81</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				17日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          252
+          
+          .
+        </td>
+        <td>
+          <a title="80" href="javascript:submitToBaseLp('80_02','period')">80</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				11日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          253
+          
+          .
+        </td>
+        <td>
+          <a title="79" href="javascript:submitToBaseLp('79_02','period')">79</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				03日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          254
+          
+          .
+        </td>
+        <td>
+          <a title="78" href="javascript:submitToBaseLp('78_02','period')">78</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				04月
+				26日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          255
+          
+          .
+        </td>
+        <td>
+          <a title="77" href="javascript:submitToBaseLp('77_02','period')">77</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				04月
+				19日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          256
+          
+          .
+        </td>
+        <td>
+          <a title="76" href="javascript:submitToBaseLp('76_02','period')">76</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國89年
+				05月
+				03日</td>
+        <td>78</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          257
+          
+          .
+        </td>
+        <td>
+          <a title="75" href="javascript:submitToBaseLp('75_02','period')">75</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				12月
+				09日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          258
+          
+          .
+        </td>
+        <td>
+          <a title="74" href="javascript:submitToBaseLp('74_02','period')">74</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				10月
+				26日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          259
+          
+          .
+        </td>
+        <td>
+          <a title="73" href="javascript:submitToBaseLp('73_02','period')">73</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				10月
+				26日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          260
+          
+          .
+        </td>
+        <td>
+          <a title="72" href="javascript:submitToBaseLp('72_02','period')">72</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				09月
+				30日</td>
+        <td>109</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          261
+          
+          .
+        </td>
+        <td>
+          <a title="71" href="javascript:submitToBaseLp('71_02','period')">71</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				09月
+				06日</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          262
+          
+          .
+        </td>
+        <td>
+          <a title="70" href="javascript:submitToBaseLp('70_02','period')">70</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				08月
+				20日</td>
+        <td>76</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          263
+          
+          .
+        </td>
+        <td>
+          <a title="69" href="javascript:submitToBaseLp('69_02','period')">69</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				07月
+				27日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          264
+          
+          .
+        </td>
+        <td>
+          <a title="68" href="javascript:submitToBaseLp('68_02','period')">68</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				07月
+				05日</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          265
+          
+          .
+        </td>
+        <td>
+          <a title="67" href="javascript:submitToBaseLp('67_02','period')">67</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				06月
+				14日</td>
+        <td>122</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          266
+          
+          .
+        </td>
+        <td>
+          <a title="66" href="javascript:submitToBaseLp('66_02','period')">66</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				05月
+				24日</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          267
+          
+          .
+        </td>
+        <td>
+          <a title="65" href="javascript:submitToBaseLp('65_02','period')">65</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				04月
+				21日</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          268
+          
+          .
+        </td>
+        <td>
+          <a title="64" href="javascript:submitToBaseLp('64_02','period')">64</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				03月
+				31日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          269
+          
+          .
+        </td>
+        <td>
+          <a title="63" href="javascript:submitToBaseLp('63_02','period')">63</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				03月
+				19日</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          270
+          
+          .
+        </td>
+        <td>
+          <a title="62" href="javascript:submitToBaseLp('62_02','period')">62</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國88年
+				02月
+				05日</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          271
+          
+          .
+        </td>
+        <td>
+          <a title="61" href="javascript:submitToBaseLp('61_02','period')">61</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				11月
+				06日</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          272
+          
+          .
+        </td>
+        <td>
+          <a title="60" href="javascript:submitToBaseLp('60_02','period')">60</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				08月
+				07日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          273
+          
+          .
+        </td>
+        <td>
+          <a title="59" href="javascript:submitToBaseLp('59_02','period')">59</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				07月
+				10日</td>
+        <td>96</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          274
+          
+          .
+        </td>
+        <td>
+          <a title="58" href="javascript:submitToBaseLp('58_02','period')">58</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				06月
+				26日</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          275
+          
+          .
+        </td>
+        <td>
+          <a title="57" href="javascript:submitToBaseLp('57_02','period')">57</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				06月
+				12日</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          276
+          
+          .
+        </td>
+        <td>
+          <a title="56" href="javascript:submitToBaseLp('56_02','period')">56</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				05月
+				29日</td>
+        <td>110</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          277
+          
+          .
+        </td>
+        <td>
+          <a title="55" href="javascript:submitToBaseLp('55_02','period')">55</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				05月
+				15日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          278
+          
+          .
+        </td>
+        <td>
+          <a title="54" href="javascript:submitToBaseLp('54_02','period')">54</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				05月
+				04日</td>
+        <td>82</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          279
+          
+          .
+        </td>
+        <td>
+          <a title="53" href="javascript:submitToBaseLp('53_02','period')">53</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				04月
+				16日</td>
+        <td>82</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          280
+          
+          .
+        </td>
+        <td>
+          <a title="52" href="javascript:submitToBaseLp('52_02','period')">52</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				03月
+				26日</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          281
+          
+          .
+        </td>
+        <td>
+          <a title="51" href="javascript:submitToBaseLp('51_02','period')">51</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				03月
+				04日</td>
+        <td>98</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          282
+          
+          .
+        </td>
+        <td>
+          <a title="50" href="javascript:submitToBaseLp('50_02','period')">50</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國87年
+				01月
+				21日</td>
+        <td>103</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          283
+          
+          .
+        </td>
+        <td>
+          <a title="49" href="javascript:submitToBaseLp('49_02','period')">49</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				10月
+				17日</td>
+        <td>73</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          284
+          
+          .
+        </td>
+        <td>
+          <a title="48" href="javascript:submitToBaseLp('48_02','period')">48</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				05月
+				16日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          285
+          
+          .
+        </td>
+        <td>
+          <a title="47" href="javascript:submitToBaseLp('47_02','period')">47</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				04月
+				25日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          286
+          
+          .
+        </td>
+        <td>
+          <a title="46" href="javascript:submitToBaseLp('46_02','period')">46</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				04月
+				03日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          287
+          
+          .
+        </td>
+        <td>
+          <a title="45" href="javascript:submitToBaseLp('45_02','period')">45</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				03月
+				17日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          288
+          
+          .
+        </td>
+        <td>
+          <a title="44" href="javascript:submitToBaseLp('44_02','period')">44</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				02月
+				28日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          289
+          
+          .
+        </td>
+        <td>
+          <a title="43" href="javascript:submitToBaseLp('43_02','period')">43</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國86年
+				01月
+				31日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          290
+          
+          .
+        </td>
+        <td>
+          <a title="42" href="javascript:submitToBaseLp('42_02','period')">42</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				12月
+				09日</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          291
+          
+          .
+        </td>
+        <td>
+          <a title="41" href="javascript:submitToBaseLp('41_02','period')">41</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				11月
+				07日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          292
+          
+          .
+        </td>
+        <td>
+          <a title="40" href="javascript:submitToBaseLp('40_02','period')">40</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				10月
+				15日</td>
+        <td>86</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          293
+          
+          .
+        </td>
+        <td>
+          <a title="39" href="javascript:submitToBaseLp('39_02','period')">39</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				09月
+				19日</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          294
+          
+          .
+        </td>
+        <td>
+          <a title="38" href="javascript:submitToBaseLp('38_02','period')">38</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				09月
+				04日</td>
+        <td>68</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          295
+          
+          .
+        </td>
+        <td>
+          <a title="37" href="javascript:submitToBaseLp('37_02','period')">37</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				07月
+				09日</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          296
+          
+          .
+        </td>
+        <td>
+          <a title="36" href="javascript:submitToBaseLp('36_02','period')">36</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				06月
+				19日</td>
+        <td>104</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          297
+          
+          .
+        </td>
+        <td>
+          <a title="35" href="javascript:submitToBaseLp('35_02','period')">35</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				04月
+				30日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          298
+          
+          .
+        </td>
+        <td>
+          <a title="34" href="javascript:submitToBaseLp('34_02','period')">34</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				03月
+				28日</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          299
+          
+          .
+        </td>
+        <td>
+          <a title="34" href="javascript:submitToBaseLp('34_02','period')">34</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				04月
+				12日</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          300
+          
+          .
+        </td>
+        <td>
+          <a title="33" href="javascript:submitToBaseLp('33_02','period')">33</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				03月
+				28日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          301
+          
+          .
+        </td>
+        <td>
+          <a title="32" href="javascript:submitToBaseLp('32_02','period')">32</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				03月
+				18日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          302
+          
+          .
+        </td>
+        <td>
+          <a title="31" href="javascript:submitToBaseLp('31_02','period')">31</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				03月
+				07日</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          303
+          
+          .
+        </td>
+        <td>
+          <a title="30" href="javascript:submitToBaseLp('30_02','period')">30</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				02月
+				14日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          304
+          
+          .
+        </td>
+        <td>
+          <a title="29" href="javascript:submitToBaseLp('29_02','period')">29</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				02月
+				03日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          305
+          
+          .
+        </td>
+        <td>
+          <a title="28" href="javascript:submitToBaseLp('28_02','period')">28</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國85年
+				01月
+				23日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          306
+          
+          .
+        </td>
+        <td>
+          <a title="27" href="javascript:submitToBaseLp('27_02','period')">27</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				11月
+				17日</td>
+        <td>34</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          307
+          
+          .
+        </td>
+        <td>
+          <a title="26" href="javascript:submitToBaseLp('26_02','period')">26</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				09月
+				20日</td>
+        <td>48</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          308
+          
+          .
+        </td>
+        <td>
+          <a title="25" href="javascript:submitToBaseLp('25_02','period')">25</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				05月
+				26日</td>
+        <td>79</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          309
+          
+          .
+        </td>
+        <td>
+          <a title="24" href="javascript:submitToBaseLp('24_02','period')">24</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				05月
+				09日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          310
+          
+          .
+        </td>
+        <td>
+          <a title="23" href="javascript:submitToBaseLp('23_02','period')">23</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				05月
+				02日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          311
+          
+          .
+        </td>
+        <td>
+          <a title="22" href="javascript:submitToBaseLp('22_02','period')">22</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				04月
+				25日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          312
+          
+          .
+        </td>
+        <td>
+          <a title="21" href="javascript:submitToBaseLp('21_02','period')">21</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				03月
+				07日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          313
+          
+          .
+        </td>
+        <td>
+          <a title="20" href="javascript:submitToBaseLp('20_02','period')">20</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				02月
+				28日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          314
+          
+          .
+        </td>
+        <td>
+          <a title="19" href="javascript:submitToBaseLp('19_02','period')">19</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				02月
+				21日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          315
+          
+          .
+        </td>
+        <td>
+          <a title="18" href="javascript:submitToBaseLp('18_02','period')">18</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				02月
+				14日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          316
+          
+          .
+        </td>
+        <td>
+          <a title="17" href="javascript:submitToBaseLp('17_02','period')">17</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				02月
+				07日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          317
+          
+          .
+        </td>
+        <td>
+          <a title="16" href="javascript:submitToBaseLp('16_02','period')">16</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				01月
+				24日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          318
+          
+          .
+        </td>
+        <td>
+          <a title="15" href="javascript:submitToBaseLp('15_02','period')">15</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				01月
+				17日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          319
+          
+          .
+        </td>
+        <td>
+          <a title="14" href="javascript:submitToBaseLp('14_02','period')">14</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國84年
+				01月
+				09日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          320
+          
+          .
+        </td>
+        <td>
+          <a title="13" href="javascript:submitToBaseLp('13_02','period')">13</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國83年
+				09月
+				30日</td>
+        <td>36</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          321
+          
+          .
+        </td>
+        <td>
+          <a title="12" href="javascript:submitToBaseLp('12_02','period')">12</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國83年
+				05月
+				04日</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          322
+          
+          .
+        </td>
+        <td>
+          <a title="11" href="javascript:submitToBaseLp('11_02','period')">11</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國83年
+				01月
+				12日</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          323
+          
+          .
+        </td>
+        <td>
+          <a title="10" href="javascript:submitToBaseLp('10_02','period')">10</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				12月
+				15日</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          324
+          
+          .
+        </td>
+        <td>
+          <a title="9" href="javascript:submitToBaseLp('9_02','period')">9</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				12月
+				08日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          325
+          
+          .
+        </td>
+        <td>
+          <a title="8" href="javascript:submitToBaseLp('8_02','period')">8</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				12月
+				01日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          326
+          
+          .
+        </td>
+        <td>
+          <a title="7" href="javascript:submitToBaseLp('7_02','period')">7</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				11月
+				24日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          327
+          
+          .
+        </td>
+        <td>
+          <a title="6" href="javascript:submitToBaseLp('6_02','period')">6</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				11月
+				17日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          328
+          
+          .
+        </td>
+        <td>
+          <a title="5" href="javascript:submitToBaseLp('5_02','period')">5</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				11月
+				10日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          329
+          
+          .
+        </td>
+        <td>
+          <a title="4" href="javascript:submitToBaseLp('4_02','period')">4</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				11月
+				03日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          330
+          
+          .
+        </td>
+        <td>
+          <a title="3" href="javascript:submitToBaseLp('3_02','period')">3</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				10月
+				27日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          331
+          
+          .
+        </td>
+        <td>
+          <a title="2" href="javascript:submitToBaseLp('2_02','period')">2</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				10月
+				18日</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          332
+          
+          .
+        </td>
+        <td>
+          <a title="1" href="javascript:submitToBaseLp('1_02','period')">1</a>
+        </td>
+        <td>申報專刊</td>
+        <td>民國82年
+				10月
+				10日</td>
+        <td>90</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>

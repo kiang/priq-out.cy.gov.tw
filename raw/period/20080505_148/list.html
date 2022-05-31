@@ -1,0 +1,4349 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="148_02" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        87
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="張炎憲" href="javascript:redirectFileDownload('Y')">
+            
+            張炎憲
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          國史館
+          
+          /
+          
+          館長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P1-4
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="阿棟‧優帕司" href="javascript:redirectFileDownload('Y')">
+            
+            阿棟‧優帕司
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院原住民族委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P5-7
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="江丙坤" href="javascript:redirectFileDownload('Y')">
+            
+            江丙坤
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P8-11
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="吳英毅" href="javascript:redirectFileDownload('Y')">
+            
+            吳英毅
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P12-14
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="林建榮" href="javascript:redirectFileDownload(14249)">
+            
+            林建榮
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P15-17
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="邱鏡淳" href="javascript:redirectFileDownload(14250)">
+            
+            邱鏡淳
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P18-20
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="莊碩漢" href="javascript:redirectFileDownload('Y')">
+            
+            莊碩漢
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P21-26
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="郭榮宗" href="javascript:redirectFileDownload('Y')">
+            
+            郭榮宗
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P27-30
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="陳根德" href="javascript:redirectFileDownload('Y')">
+            
+            陳根德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P31-33
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="陳朝龍" href="javascript:redirectFileDownload('Y')">
+            
+            陳朝龍
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P34-37
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="陳節如" href="javascript:redirectFileDownload('Y')">
+            
+            陳節如
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P38-41
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="傅萁" href="javascript:redirectFileDownload(14256)">
+            
+            傅萁
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P42-45
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="彭紹瑾" href="javascript:redirectFileDownload(14257)">
+            
+            彭紹瑾
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P46-50
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="費鴻泰" href="javascript:redirectFileDownload(14258)">
+            
+            費鴻泰
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P51-54
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="黃健庭" href="javascript:redirectFileDownload(14259)">
+            
+            黃健庭
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P55-58
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="黃義交" href="javascript:redirectFileDownload('Y')">
+            
+            黃義交
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P59-61
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="黃德福" href="javascript:redirectFileDownload('Y')">
+            
+            黃德福
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P62-65
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="管碧玲" href="javascript:redirectFileDownload(14262)">
+            
+            管碧玲
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P66-69
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="魏明谷" href="javascript:redirectFileDownload(14263)">
+            
+            魏明谷
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P70-72
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="林錫山" href="javascript:redirectFileDownload('Y')">
+            
+            林錫山
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          秘書長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P73-76
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="林錫堯" href="javascript:redirectFileDownload('Y')">
+            
+            林錫堯
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          司法院
+          
+          /
+          
+          大法官
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P77-79
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="郭光雄" href="javascript:redirectFileDownload('Y')">
+            
+            郭光雄
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          考試院
+          
+          /
+          
+          考試委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P80-82
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="蔡式淵" href="javascript:redirectFileDownload('Y')">
+            
+            蔡式淵
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          考試院
+          
+          /
+          
+          考試委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P83-86
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="邊裕淵" href="javascript:redirectFileDownload('Y')">
+            
+            邊裕淵
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          考試院
+          
+          /
+          
+          考試委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P87-89
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="朱武獻" href="javascript:redirectFileDownload('Y')">
+            
+            朱武獻
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          部長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P90-93
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="李若一" href="javascript:redirectFileDownload('Y')">
+            
+            李若一
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          銓敘部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P94-97
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="黃敏恭" href="javascript:redirectFileDownload('Y')">
+            
+            黃敏恭
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園縣政府
+          
+          /
+          
+          副縣長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P98-101
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="趙紹廉" href="javascript:redirectFileDownload(14272)">
+            
+            趙紹廉
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園縣政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P102-106
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="吳清基" href="javascript:redirectFileDownload('Y')">
+            
+            吳清基
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P107-109
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="吳清基" href="javascript:redirectFileDownload('Y')">
+            
+            吳清基
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P110-110
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="師豫玲" href="javascript:redirectFileDownload(14275)">
+            
+            師豫玲
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P111-113
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="師豫玲" href="javascript:redirectFileDownload(14276)">
+            
+            師豫玲
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          114-115
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="許志堅" href="javascript:redirectFileDownload('Y')">
+            
+            許志堅
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P116-119
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="許志堅" href="javascript:redirectFileDownload('Y')">
+            
+            許志堅
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P120-123
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="張明珠" href="javascript:redirectFileDownload('Y')">
+            
+            張明珠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P124-127
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="常岐德" href="javascript:redirectFileDownload('Y')">
+            
+            常岐德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P128-130
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="常岐德" href="javascript:redirectFileDownload('Y')">
+            
+            常岐德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P131-131
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="郭瑞華" href="javascript:redirectFileDownload(14282)">
+            
+            郭瑞華
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P132-134
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="張家生" href="javascript:redirectFileDownload('Y')">
+            
+            張家生
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市政府
+          
+          /
+          
+          處長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P135-138
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="林仁益" href="javascript:redirectFileDownload(14284)">
+            
+            林仁益
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          副市長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P139-142
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="雷仲達" href="javascript:redirectFileDownload(14285)">
+            
+            雷仲達
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P143-147
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="蔡武德" href="javascript:redirectFileDownload('Y')">
+            
+            蔡武德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P148-150
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="李正彬" href="javascript:redirectFileDownload('Y')">
+            
+            李正彬
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P151-155
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="王志誠" href="javascript:redirectFileDownload('Y')">
+            
+            王志誠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P156-159
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="吳英明" href="javascript:redirectFileDownload('Y')">
+            
+            吳英明
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P160-163
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="陳金寶" href="javascript:redirectFileDownload('Y')">
+            
+            陳金寶
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P164-168
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="鍾孔炤" href="javascript:redirectFileDownload(14291)">
+            
+            鍾孔炤
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          高雄市政府
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P169-171
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="吳碧珠" href="javascript:redirectFileDownload('Y')">
+            
+            吳碧珠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P172-174
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="陳錦祥" href="javascript:redirectFileDownload('Y')">
+            
+            陳錦祥
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P175-180
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="王正德" href="javascript:redirectFileDownload('Y')">
+            
+            王正德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P181-183
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="王浩" href="javascript:redirectFileDownload(14295)">
+            
+            王浩
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P184-186
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="吳世正" href="javascript:redirectFileDownload('Y')">
+            
+            吳世正
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P187-190
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="李仁人" href="javascript:redirectFileDownload('Y')">
+            
+            李仁人
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P191-193
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="李文英" href="javascript:redirectFileDownload('Y')">
+            
+            李文英
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P194-198
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="李建昌" href="javascript:redirectFileDownload('Y')">
+            
+            李建昌
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P199-202
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="李彥秀" href="javascript:redirectFileDownload('Y')">
+            
+            李彥秀
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P203-205
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="李新" href="javascript:redirectFileDownload('Y')">
+            
+            李新
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P206-208
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="李銀來" href="javascript:redirectFileDownload('Y')">
+            
+            李銀來
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P209-212
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="李慶元" href="javascript:redirectFileDownload('Y')">
+            
+            李慶元
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P213-216
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="汪志冰" href="javascript:redirectFileDownload('Y')">
+            
+            汪志冰
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P217-219
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="周威佑" href="javascript:redirectFileDownload('Y')">
+            
+            周威佑
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P220-222
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="周柏雅" href="javascript:redirectFileDownload('Y')">
+            
+            周柏雅
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P223-225
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="林奕華" href="javascript:redirectFileDownload(14307)">
+            
+            林奕華
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P226-228
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="林晉章" href="javascript:redirectFileDownload('Y')">
+            
+            林晉章
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P229-233
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="侯冠群" href="javascript:redirectFileDownload('Y')">
+            
+            侯冠群
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P234-236
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="徐佳青" href="javascript:redirectFileDownload('Y')">
+            
+            徐佳青
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P237-240
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="秦儷舫" href="javascript:redirectFileDownload('Y')">
+            
+            秦儷舫
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P241-244
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="陳永德" href="javascript:redirectFileDownload('Y')">
+            
+            陳永德
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P245-248
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="陳玉梅" href="javascript:redirectFileDownload('Y')">
+            
+            陳玉梅
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P249-253
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="陳政忠" href="javascript:redirectFileDownload('Y')">
+            
+            陳政忠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P254-256
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="陳義洲" href="javascript:redirectFileDownload('Y')">
+            
+            陳義洲
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P257-260
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="陳嘉銘" href="javascript:redirectFileDownload('Y')">
+            
+            陳嘉銘
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P261-263
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="陳碧峰" href="javascript:redirectFileDownload('Y')">
+            
+            陳碧峰
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P264-266
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="陳孋輝" href="javascript:redirectFileDownload('Y')">
+            
+            陳孋輝
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P267-269
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="黃珊珊" href="javascript:redirectFileDownload('Y')">
+            
+            黃珊珊
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P270-272
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="楊實秋" href="javascript:redirectFileDownload('Y')">
+            
+            楊實秋
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P273-275
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="劉耀仁" href="javascript:redirectFileDownload('Y')">
+            
+            劉耀仁
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P276-278
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="厲耿桂芳" href="javascript:redirectFileDownload('Y')">
+            
+            厲耿桂芳
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P279-283
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="歐陽龍" href="javascript:redirectFileDownload('Y')">
+            
+            歐陽龍
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P284-288
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="潘懷宗" href="javascript:redirectFileDownload('Y')">
+            
+            潘懷宗
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P289-291
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          81
+          
+          .
+        </td>
+        <td>
+          <a title="蔣乃辛" href="javascript:redirectFileDownload(14325)">
+            
+            蔣乃辛
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P292-294
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          82
+          
+          .
+        </td>
+        <td>
+          <a title="賴素如" href="javascript:redirectFileDownload('Y')">
+            
+            賴素如
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P295-297
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          83
+          
+          .
+        </td>
+        <td>
+          <a title="戴錫欽" href="javascript:redirectFileDownload('Y')">
+            
+            戴錫欽
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P298-301
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          84
+          
+          .
+        </td>
+        <td>
+          <a title="顏聖冠" href="javascript:redirectFileDownload('Y')">
+            
+            顏聖冠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P302-304
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          85
+          
+          .
+        </td>
+        <td>
+          <a title="黃敏恭" href="javascript:redirectFileDownload('Y')">
+            
+            黃敏恭
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          桃園縣政府
+          
+          /
+          
+          副縣長
+          
+        </td>
+        <td>
+          
+          03動態申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P305-305
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          86
+          
+          .
+        </td>
+        <td>
+          <a title="張茂楠" href="javascript:redirectFileDownload('Y')">
+            
+            張茂楠
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          台北市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          03動態申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P306-306
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          87
+          
+          .
+        </td>
+        <td>
+          <a title="張士傑" href="javascript:redirectFileDownload('Y')">
+            
+            張士傑
+            
+          </a>
+        </td>
+        <td>
+          
+          148
+          
+          (
+          
+          申報專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院金融監督管理委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          02更補正申報
+          
+        </td>
+        <td>民國97年
+			05月
+			05日</td>
+        <td>
+          
+          P307-309
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>
