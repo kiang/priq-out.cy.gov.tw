@@ -38,7 +38,7 @@ foreach ($lines as $line) {
             $pCols = explode('</td>', $pLine);
             if (8 === count($pCols)) {
                 $pKeys = preg_split('/[^0-9]+/', $pCols[1]);
-                if (isset($pKeys[1])) {
+                if (!empty($pKeys[1])) {
                     foreach ($pCols as $k => $v) {
                         $pCols[$k] = preg_replace('/\s/', '', strip_tags($v));
                     }
@@ -46,8 +46,11 @@ foreach ($lines as $line) {
                     $pdfFile = $periodPath . '/' . $pCols[3] . '_' . $pCols[1] . '.pdf';
                     if (!file_exists($pdfFile)) {
                         echo "getting {$pdfFile}\n";
-                        file_put_contents($pdfFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1]));
-                        ++$downloadCounter;
+                        $c = file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1]);
+                        if (strlen($c) > 100) {
+                            file_put_contents($pdfFile, $c);
+                            ++$downloadCounter;
+                        }
                     }
                     if ($downloadCounter === 500) {
                         $downloadCounter = 0;
