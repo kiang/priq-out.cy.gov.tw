@@ -5,6 +5,10 @@ $pagePath = $rawPath . '/page';
 if (!file_exists($pagePath)) {
     mkdir($pagePath, 0777, true);
 }
+$listPath = $rootPath . '/data/list';
+if (!file_exists($listPath)) {
+    mkdir($listPath, 0777, true);
+}
 $pageFullFile = $pagePath . '/20220531.html';
 if (!file_exists($pageFullFile)) {
     file_put_contents($pageFullFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/SpecificLP.jsp?nowPage=1&perPage=500&queryStr=&queryCol=period'));
@@ -12,6 +16,7 @@ if (!file_exists($pageFullFile)) {
 
 $pageFull = file_get_contents($pageFullFile);
 $downloadCounter = 0;
+$oFh = [];
 
 $lines = explode('<tr>', $pageFull);
 foreach ($lines as $line) {
@@ -24,7 +29,8 @@ foreach ($lines as $line) {
         }
         $theDay = preg_split('/[^0-9]+/', $cols[3]);
         $theDay[1] += 1911;
-        $periodPath = $rawPath . '/period/' . $theDay[1] . $theDay[2] . $theDay[3] . '_' . $cols[1];
+        $theDate = $theDay[1] . $theDay[2] . $theDay[3];
+        $periodPath = $rawPath . '/period/' . $theDate . '_' . $cols[1];
         if (!file_exists($periodPath)) {
             mkdir($periodPath, 0777, true);
         }
@@ -43,10 +49,20 @@ foreach ($lines as $line) {
                         $pCols[$k] = preg_replace('/\s/', '', strip_tags($v));
                     }
                     $pCols[3] = str_replace('/', '_', $pCols[3]);
+                    $link = 'https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1];
+                    if (!isset($oFh[$pCols[3]])) {
+                        $oFh[$pCols[3]] = $listPath . '/' . $pCols[3] . '.csv';
+                        $wFh = fopen($oFh[$pCols[3]], 'w');
+                        fputcsv($wFh, ['date', 'period', 'name', 'link']);
+                        fclose($wFh);
+                    }
+                    $wFh = fopen($oFh[$pCols[3]], 'a');
+                    fputcsv($wFh, [$theDate, $cols[1], $pCols[1], $link]);
+                    fclose($wFh);
                     $pdfFile = $periodPath . '/' . $pCols[3] . '_' . $pCols[1] . '.pdf';
                     if (!file_exists($pdfFile)) {
                         echo "getting {$pdfFile}\n";
-                        $c = file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1]);
+                        $c = file_get_contents($link);
                         if (strlen($c) > 100) {
                             file_put_contents($pdfFile, $c);
                             ++$downloadCounter;
