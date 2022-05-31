@@ -6,9 +6,6 @@ if (!file_exists($pagePath)) {
     mkdir($pagePath, 0777, true);
 }
 $listPath = $rootPath . '/data/list';
-if (!file_exists($listPath)) {
-    mkdir($listPath, 0777, true);
-}
 $pageFullFile = $pagePath . '/20220531.html';
 if (!file_exists($pageFullFile)) {
     file_put_contents($pageFullFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/SpecificLP.jsp?nowPage=1&perPage=500&queryStr=&queryCol=period'));
@@ -51,13 +48,18 @@ foreach ($lines as $line) {
                     $pCols[3] = str_replace('/', '_', $pCols[3]);
                     $link = 'https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1];
                     if (!isset($oFh[$pCols[3]])) {
-                        $oFh[$pCols[3]] = $listPath . '/' . $pCols[3] . '.csv';
+                        $fileParts = explode('_', $pCols[3]);
+                        $filePath = $listPath . '/' . $fileParts[0];
+                        if (!file_exists($filePath)) {
+                            mkdir($filePath, 0777, true);
+                        }
+                        $oFh[$pCols[3]] = $filePath . '/' . $fileParts[1] . '.csv';
                         $wFh = fopen($oFh[$pCols[3]], 'w');
-                        fputcsv($wFh, ['date', 'period', 'name', 'link']);
+                        fputcsv($wFh, ['date', 'period', 'name', 'type', 'link']);
                         fclose($wFh);
                     }
                     $wFh = fopen($oFh[$pCols[3]], 'a');
-                    fputcsv($wFh, [$theDate, $cols[1], $pCols[1], $link]);
+                    fputcsv($wFh, [$theDate, $cols[1], $pCols[1], $pCols[4], $link]);
                     fclose($wFh);
                     $pdfFile = $periodPath . '/' . $pCols[3] . '_' . $pCols[1] . '.pdf';
                     if (!file_exists($pdfFile)) {
