@@ -1,5 +1,6 @@
 <?php
-$rawPath = dirname(__DIR__) . '/raw';
+$rootPath = dirname(__DIR__);
+$rawPath = $rootPath . '/raw';
 $pagePath = $rawPath . '/page';
 if (!file_exists($pagePath)) {
     mkdir($pagePath, 0777, true);
@@ -10,6 +11,7 @@ if (!file_exists($pageFullFile)) {
 }
 
 $pageFull = file_get_contents($pageFullFile);
+$downloadCounter = 0;
 
 $lines = explode('<tr>', $pageFull);
 foreach ($lines as $line) {
@@ -42,12 +44,27 @@ foreach ($lines as $line) {
                     }
                     $pCols[3] = str_replace('/', '_', $pCols[3]);
                     $pdfFile = $periodPath . '/' . $pCols[3] . '_' . $pCols[1] . '.pdf';
-                    if(!file_exists($pdfFile)) {
+                    if (!file_exists($pdfFile)) {
                         echo "getting {$pdfFile}\n";
                         file_put_contents($pdfFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/fileDownload.jsp?id=' . $pKeys[1]));
+                        ++$downloadCounter;
+                    }
+                    if ($downloadCounter === 500) {
+                        $downloadCounter = 0;
+                        $now = date('Y-m-d H:i:s');
+                        exec("cd {$rootPath} && /usr/bin/git pull");
+                        exec("cd {$rootPath} && /usr/bin/git add -A");
+                        exec("cd {$rootPath} && /usr/bin/git commit --author 'auto commit <noreply@localhost>' -m 'auto update @ {$now}'");
+                        exec("cd {$rootPath} && /usr/bin/git push origin master");
                     }
                 }
             }
         }
     }
 }
+
+$now = date('Y-m-d H:i:s');
+exec("cd {$rootPath} && /usr/bin/git pull");
+exec("cd {$rootPath} && /usr/bin/git add -A");
+exec("cd {$rootPath} && /usr/bin/git commit --author 'auto commit <noreply@localhost>' -m 'auto update @ {$now}'");
+exec("cd {$rootPath} && /usr/bin/git push origin master");
