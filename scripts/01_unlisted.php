@@ -35,7 +35,7 @@ for ($i = 1; $i <= $max; $i++) {
             $size = fgets($io, 4096);
             $size = substr($size, 0, strpos($size, "\t"));
             pclose($io);
-            if ($size < 5) {
+            if ($size < 5 && file_exists($rootPath . '/raw/unlisted/' . $currentNo)) {
                 rmdir($rootPath . '/raw/unlisted/' . $currentNo);
             }
         }
