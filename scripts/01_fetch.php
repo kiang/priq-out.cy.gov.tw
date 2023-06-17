@@ -7,9 +7,7 @@ if (!file_exists($pagePath)) {
 }
 $listPath = $rootPath . '/data/list';
 $pageFullFile = $pagePath . '/page.html';
-if (!file_exists($pageFullFile)) {
-    file_put_contents($pageFullFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/SpecificLP.jsp?nowPage=1&perPage=500&queryStr=&queryCol=period'));
-}
+file_put_contents($pageFullFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/SpecificLP.jsp?nowPage=1&perPage=1000&queryStr=&queryCol=period'));
 
 $pageFull = file_get_contents($pageFullFile);
 $downloadCounter = 0;
