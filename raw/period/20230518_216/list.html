@@ -1,0 +1,5854 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			//alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+			alert('依公職人員財產申報法第6條第2項後段規定及法務部111年7月28日法廉字第11100033770號函釋意旨，各類應上網公告人員之申報資料，應定期刊登政府公報並上網公告至其喪失原申報身分後1年。有關公職人員喪失原申報身分已逾1年者依法下架，本網站不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="216_01" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        119
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="李妍慧" href="javascript:redirectFileDownload(67304)">
+            
+            李妍慧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P1-40
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="李妍慧" href="javascript:redirectFileDownload(67305)">
+            
+            李妍慧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P41-61
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="陳慶齡" href="javascript:redirectFileDownload(67306)">
+            
+            陳慶齡
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P62-66
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="陳慶齡" href="javascript:redirectFileDownload(67307)">
+            
+            陳慶齡
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P67-67
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="張祖琰" href="javascript:redirectFileDownload(67308)">
+            
+            張祖琰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P68-73
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="張祖琰" href="javascript:redirectFileDownload(67309)">
+            
+            張祖琰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P74-75
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="黃文政" href="javascript:redirectFileDownload(67310)">
+            
+            黃文政
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P76-82
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="黃文政" href="javascript:redirectFileDownload(67311)">
+            
+            黃文政
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P83-84
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="彭昆耀" href="javascript:redirectFileDownload(67312)">
+            
+            彭昆耀
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P85-87
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="彭昆耀" href="javascript:redirectFileDownload(67313)">
+            
+            彭昆耀
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P88-88
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="劉崇顯" href="javascript:redirectFileDownload(67314)">
+            
+            劉崇顯
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P89-93
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="劉崇顯" href="javascript:redirectFileDownload(67315)">
+            
+            劉崇顯
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P94-96
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="莊豐安" href="javascript:redirectFileDownload(67316)">
+            
+            莊豐安
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P97-99
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="莊豐安" href="javascript:redirectFileDownload(67317)">
+            
+            莊豐安
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議長
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P100-100
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="蘇澤峰" href="javascript:redirectFileDownload(67318)">
+            
+            蘇澤峰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P101-105
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="蘇澤峰" href="javascript:redirectFileDownload(67319)">
+            
+            蘇澤峰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P106-106
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="吳上明" href="javascript:redirectFileDownload(67320)">
+            
+            吳上明
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P107-111
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="吳上明" href="javascript:redirectFileDownload(67321)">
+            
+            吳上明
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P112-112
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="李忠曆" href="javascript:redirectFileDownload(67322)">
+            
+            李忠曆
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P113-117
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="李忠曆" href="javascript:redirectFileDownload(67323)">
+            
+            李忠曆
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P118-118
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="李奕德" href="javascript:redirectFileDownload(67324)">
+            
+            李奕德
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P119-121
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="李奕德" href="javascript:redirectFileDownload(67325)">
+            
+            李奕德
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P122-122
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="凌子楚" href="javascript:redirectFileDownload(67326)">
+            
+            凌子楚
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P123-126
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="凌子楚" href="javascript:redirectFileDownload(67327)">
+            
+            凌子楚
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P127-127
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="孫貫志" href="javascript:redirectFileDownload(67328)">
+            
+            孫貫志
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P128-132
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="孫貫志" href="javascript:redirectFileDownload(67329)">
+            
+            孫貫志
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P133-133
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="陳姿妏" href="javascript:redirectFileDownload(67330)">
+            
+            陳姿妏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P134-137
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="陳姿妏" href="javascript:redirectFileDownload(67331)">
+            
+            陳姿妏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P138-138
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="陳家平" href="javascript:redirectFileDownload(67332)">
+            
+            陳家平
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P139-142
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="陳家平" href="javascript:redirectFileDownload(67333)">
+            
+            陳家平
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P143-143
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="張秀華" href="javascript:redirectFileDownload(67334)">
+            
+            張秀華
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P144-146
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="張秀華" href="javascript:redirectFileDownload(67335)">
+            
+            張秀華
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P147-147
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="張敏琪" href="javascript:redirectFileDownload(67336)">
+            
+            張敏琪
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P148-150
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="張敏琪" href="javascript:redirectFileDownload(67337)">
+            
+            張敏琪
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P151-151
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="張榮藏" href="javascript:redirectFileDownload(67338)">
+            
+            張榮藏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P152-154
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="張榮藏" href="javascript:redirectFileDownload(67339)">
+            
+            張榮藏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P155-155
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="黃大祐" href="javascript:redirectFileDownload(67340)">
+            
+            黃大祐
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P156-161
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="黃大祐" href="javascript:redirectFileDownload(67341)">
+            
+            黃大祐
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P162-164
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="黃思婷" href="javascript:redirectFileDownload(67342)">
+            
+            黃思婷
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P165-168
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="黃思婷" href="javascript:redirectFileDownload(67343)">
+            
+            黃思婷
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P169-169
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="黃露慧" href="javascript:redirectFileDownload(67344)">
+            
+            黃露慧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P170-176
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="黃露慧" href="javascript:redirectFileDownload(67345)">
+            
+            黃露慧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P177-182
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="傅大偉" href="javascript:redirectFileDownload(67346)">
+            
+            傅大偉
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P183-186
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="傅大偉" href="javascript:redirectFileDownload(67347)">
+            
+            傅大偉
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P187-187
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="蔡文旭" href="javascript:redirectFileDownload(67348)">
+            
+            蔡文旭
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P188-192
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="蔡文旭" href="javascript:redirectFileDownload(67349)">
+            
+            蔡文旭
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P193-193
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="蔡永泉" href="javascript:redirectFileDownload(67350)">
+            
+            蔡永泉
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P194-197
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="蔡永泉" href="javascript:redirectFileDownload(67351)">
+            
+            蔡永泉
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P198-199
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="蔡榮豐" href="javascript:redirectFileDownload(67352)">
+            
+            蔡榮豐
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P200-202
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="蔡榮豐" href="javascript:redirectFileDownload(67353)">
+            
+            蔡榮豐
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P203-203
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="鄭光宏" href="javascript:redirectFileDownload(67354)">
+            
+            鄭光宏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P204-208
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="鄭光宏" href="javascript:redirectFileDownload(67355)">
+            
+            鄭光宏
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P209-209
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="戴寧" href="javascript:redirectFileDownload(67356)">
+            
+            戴寧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P210-212
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="戴寧" href="javascript:redirectFileDownload(67357)">
+            
+            戴寧
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          嘉義市議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P213-213
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="張鎮榮" href="javascript:redirectFileDownload(67358)">
+            
+            張鎮榮
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P214-219
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="張鎮榮" href="javascript:redirectFileDownload(67359)">
+            
+            張鎮榮
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議長
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P220-220
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="王炳漢" href="javascript:redirectFileDownload(67360)">
+            
+            王炳漢
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P221-225
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="王炳漢" href="javascript:redirectFileDownload(67361)">
+            
+            王炳漢
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P226-226
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="上官秋燕" href="javascript:redirectFileDownload(67362)">
+            
+            上官秋燕
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P227-230
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="上官秋燕" href="javascript:redirectFileDownload(67363)">
+            
+            上官秋燕
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P231-231
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="何智達" href="javascript:redirectFileDownload(67364)">
+            
+            何智達
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P232-235
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="何智達" href="javascript:redirectFileDownload(67365)">
+            
+            何智達
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P236-238
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="余筱菁" href="javascript:redirectFileDownload(67366)">
+            
+            余筱菁
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P239-241
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="余筱菁" href="javascript:redirectFileDownload(67367)">
+            
+            余筱菁
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P242-242
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="吳旭智" href="javascript:redirectFileDownload(67368)">
+            
+            吳旭智
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P243-246
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="吳旭智" href="javascript:redirectFileDownload(67369)">
+            
+            吳旭智
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P247-247
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="吳淑君" href="javascript:redirectFileDownload(67370)">
+            
+            吳淑君
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P248-253
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="吳淑君" href="javascript:redirectFileDownload(67371)">
+            
+            吳淑君
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P254-258
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="吳菊花" href="javascript:redirectFileDownload(67372)">
+            
+            吳菊花
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P259-264
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="吳菊花" href="javascript:redirectFileDownload(67373)">
+            
+            吳菊花
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P265-265
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="吳傳地" href="javascript:redirectFileDownload(67374)">
+            
+            吳傳地
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P266-269
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="吳傳地" href="javascript:redirectFileDownload(67375)">
+            
+            吳傳地
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P270-271
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="杜文中" href="javascript:redirectFileDownload(67376)">
+            
+            杜文中
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P272-275
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="杜文中" href="javascript:redirectFileDownload(67377)">
+            
+            杜文中
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P276-276
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="邱振瑋" href="javascript:redirectFileDownload(67378)">
+            
+            邱振瑋
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P277-282
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="邱振瑋" href="javascript:redirectFileDownload(67379)">
+            
+            邱振瑋
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P283-283
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="林秉君" href="javascript:redirectFileDownload(67380)">
+            
+            林秉君
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P284-287
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="林秉君" href="javascript:redirectFileDownload(67381)">
+            
+            林秉君
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P288-288
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="林禹佑" href="javascript:redirectFileDownload(67382)">
+            
+            林禹佑
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P289-292
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="林禹佑" href="javascript:redirectFileDownload(67383)">
+            
+            林禹佑
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P293-293
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          81
+          
+          .
+        </td>
+        <td>
+          <a title="林增堂" href="javascript:redirectFileDownload(67384)">
+            
+            林增堂
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P294-297
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          82
+          
+          .
+        </td>
+        <td>
+          <a title="林增堂" href="javascript:redirectFileDownload(67385)">
+            
+            林增堂
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P298-299
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          83
+          
+          .
+        </td>
+        <td>
+          <a title="范曰富" href="javascript:redirectFileDownload(67386)">
+            
+            范曰富
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P300-304
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          84
+          
+          .
+        </td>
+        <td>
+          <a title="范曰富" href="javascript:redirectFileDownload(67387)">
+            
+            范曰富
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P305-305
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          85
+          
+          .
+        </td>
+        <td>
+          <a title="徐瑜新" href="javascript:redirectFileDownload(67388)">
+            
+            徐瑜新
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P306-313
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          86
+          
+          .
+        </td>
+        <td>
+          <a title="徐瑜新" href="javascript:redirectFileDownload(67389)">
+            
+            徐瑜新
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P314-315
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          87
+          
+          .
+        </td>
+        <td>
+          <a title="連郁婷" href="javascript:redirectFileDownload(67390)">
+            
+            連郁婷
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P316-317
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          88
+          
+          .
+        </td>
+        <td>
+          <a title="連郁婷" href="javascript:redirectFileDownload(67391)">
+            
+            連郁婷
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P318-318
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          89
+          
+          .
+        </td>
+        <td>
+          <a title="郭遠彰" href="javascript:redirectFileDownload(67392)">
+            
+            郭遠彰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P319-326
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          90
+          
+          .
+        </td>
+        <td>
+          <a title="郭遠彰" href="javascript:redirectFileDownload(67393)">
+            
+            郭遠彰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P327-350
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          91
+          
+          .
+        </td>
+        <td>
+          <a title="陳正順" href="javascript:redirectFileDownload(67394)">
+            
+            陳正順
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P351-355
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          92
+          
+          .
+        </td>
+        <td>
+          <a title="陳正順" href="javascript:redirectFileDownload(67395)">
+            
+            陳正順
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P356-356
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          93
+          
+          .
+        </td>
+        <td>
+          <a title="陳凱榮" href="javascript:redirectFileDownload(67396)">
+            
+            陳凱榮
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P357-359
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          94
+          
+          .
+        </td>
+        <td>
+          <a title="陳凱榮" href="javascript:redirectFileDownload(67397)">
+            
+            陳凱榮
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P360-360
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          95
+          
+          .
+        </td>
+        <td>
+          <a title="陳新源" href="javascript:redirectFileDownload(67398)">
+            
+            陳新源
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P361-363
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          96
+          
+          .
+        </td>
+        <td>
+          <a title="張良印" href="javascript:redirectFileDownload(67399)">
+            
+            張良印
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P364-367
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          97
+          
+          .
+        </td>
+        <td>
+          <a title="張良印" href="javascript:redirectFileDownload(67400)">
+            
+            張良印
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P368-368
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          98
+          
+          .
+        </td>
+        <td>
+          <a title="張珈源" href="javascript:redirectFileDownload(67401)">
+            
+            張珈源
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P369-396
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          99
+          
+          .
+        </td>
+        <td>
+          <a title="張珈源" href="javascript:redirectFileDownload(67402)">
+            
+            張珈源
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P397-406
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          100
+          
+          .
+        </td>
+        <td>
+          <a title="張益生" href="javascript:redirectFileDownload(67403)">
+            
+            張益生
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P407-410
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          101
+          
+          .
+        </td>
+        <td>
+          <a title="張益生" href="javascript:redirectFileDownload(67404)">
+            
+            張益生
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P411-411
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          102
+          
+          .
+        </td>
+        <td>
+          <a title="黃豪杰" href="javascript:redirectFileDownload(67405)">
+            
+            黃豪杰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P412-416
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          103
+          
+          .
+        </td>
+        <td>
+          <a title="黃豪杰" href="javascript:redirectFileDownload(67406)">
+            
+            黃豪杰
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P417-423
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          104
+          
+          .
+        </td>
+        <td>
+          <a title="彭余美玲" href="javascript:redirectFileDownload(67407)">
+            
+            彭余美玲
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P424-427
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          105
+          
+          .
+        </td>
+        <td>
+          <a title="彭余美玲" href="javascript:redirectFileDownload(67408)">
+            
+            彭余美玲
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P428-428
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          106
+          
+          .
+        </td>
+        <td>
+          <a title="甄克堅" href="javascript:redirectFileDownload(67409)">
+            
+            甄克堅
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P429-431
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          107
+          
+          .
+        </td>
+        <td>
+          <a title="甄克堅" href="javascript:redirectFileDownload(67410)">
+            
+            甄克堅
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P432-432
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          108
+          
+          .
+        </td>
+        <td>
+          <a title="蔡志環" href="javascript:redirectFileDownload(67411)">
+            
+            蔡志環
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P433-436
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          109
+          
+          .
+        </td>
+        <td>
+          <a title="蔡志環" href="javascript:redirectFileDownload(67412)">
+            
+            蔡志環
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P437-437
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          110
+          
+          .
+        </td>
+        <td>
+          <a title="鄭昱芸" href="javascript:redirectFileDownload(67413)">
+            
+            鄭昱芸
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P438-441
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          111
+          
+          .
+        </td>
+        <td>
+          <a title="鄭昱芸" href="javascript:redirectFileDownload(67414)">
+            
+            鄭昱芸
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P442-442
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          112
+          
+          .
+        </td>
+        <td>
+          <a title="鄭美琴" href="javascript:redirectFileDownload(67415)">
+            
+            鄭美琴
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P443-446
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          113
+          
+          .
+        </td>
+        <td>
+          <a title="鄭美琴" href="javascript:redirectFileDownload(67416)">
+            
+            鄭美琴
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P447-447
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          114
+          
+          .
+        </td>
+        <td>
+          <a title="劉建民" href="javascript:redirectFileDownload(67417)">
+            
+            劉建民
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P448-451
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          115
+          
+          .
+        </td>
+        <td>
+          <a title="劉建民" href="javascript:redirectFileDownload(67418)">
+            
+            劉建民
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P452-452
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          116
+          
+          .
+        </td>
+        <td>
+          <a title="羅仕琦" href="javascript:redirectFileDownload(67419)">
+            
+            羅仕琦
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P453-457
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          117
+          
+          .
+        </td>
+        <td>
+          <a title="羅仕琦" href="javascript:redirectFileDownload(67420)">
+            
+            羅仕琦
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P458-458
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          118
+          
+          .
+        </td>
+        <td>
+          <a title="羅美文" href="javascript:redirectFileDownload(67421)">
+            
+            羅美文
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P459-464
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          119
+          
+          .
+        </td>
+        <td>
+          <a title="羅美文" href="javascript:redirectFileDownload(67422)">
+            
+            羅美文
+            
+          </a>
+        </td>
+        <td>
+          
+          216
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          新竹縣議會
+          
+          /
+          
+          議員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			05月
+			18日</td>
+        <td>
+          
+          P465-465
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>
