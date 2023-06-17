@@ -1,0 +1,4632 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml:lang="zh-TW" lang="zh-TW" xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:hyweb="urn:gip-hyweb-com" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>陽光法令主題網</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/default.css">
+	<link rel="stylesheet" type="text/css" href="../styles/cy_sun/css/design.css">
+	<link rel="stylesheet"           type="text/css" title="small"  cat="font" href="../styles/cy_sun/css/fontS.css">
+	<link rel="alternate stylesheet" type="text/css" title="medium" cat="font" href="../styles/cy_sun/css/fontM.css">
+	<link rel="alternate stylesheet" type="text/css" title="large"  cat="font" href="../styles/cy_sun/css/fontL.css">
+
+	<!-- script type="text/javascript" src="../js/jquery.min.js"></script -->
+</head>
+<body>
+	
+
+
+
+<table class="layout" summary="layout table" align="center">
+  <tr>
+    <td class="center">
+	  
+
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:user="urn:user-namespace-here" xmlns:msxsl="urn:schemas-microsoft-com:xslt" class="lp">
+  <h2>
+    <span>財產申報專刊查詢</span>
+  </h2>
+  <script language="javascript">//取得網址參數js
+	function getUrlPara(para){
+		var url=window.location.toString();
+		var str="";
+		var str_value="";
+		if(url.indexOf("?")!=-1){
+		    var ary=url.split("?")[1].split("&amp;");
+		    for(var i in ary){
+		        str=ary[i].toString().split("=")[0];
+		        if (str == para) {
+		            str_value = ary[i].toString().split("=")[1];
+		        }
+		    }
+		}
+
+		return str_value;
+	}
+	
+	//redirect to fileDownload
+	function redirectFileDownload(id){
+		if(id == 'Y'){
+			//alert('依公職人員財產申報法第16條第1項規定，申報人喪失第二條所定申報財產之身分者，其申報之資料應保存五年，期滿應予銷毀，不再提供查詢。');
+			alert('依公職人員財產申報法第6條第2項後段規定及法務部111年7月28日法廉字第11100033770號函釋意旨，各類應上網公告人員之申報資料，應定期刊登政府公報並上網公告至其喪失原申報身分後1年。有關公職人員喪失原申報身分已逾1年者依法下架，本網站不再提供查詢。');
+		}
+		else{
+			var cppath = './fileDownload.jsp?id=' + id;
+			window.location=cppath;
+		}
+	}
+	
+	//LP換頁js
+	function submitToLP(nowPage,perPage){
+		document.getElementById("nowPage").value = nowPage;
+		document.getElementById("perPage").value = perPage;
+		var formAction = './baseList.jsp?ctNode=' + getUrlPara("ctNode");
+		document.getElementById("SpecialPubForm").action = formAction;
+		document.getElementById("SpecialPubForm").submit();
+	}
+	
+	function redirectSpecific(itype){
+		document.getElementById("specific_queryCol").value = itype;
+		var address = "./SpecificLP.jsp?;ctNode=" + getUrlPara("ctNode");
+		document.getElementById("specificForm").action = address;
+		document.getElementById("specificForm").submit();
+	}
+	
+	function redirectBaseQuery(){
+		var address = "./baseQuery.jsp?ctNode=" + getUrlPara("ctNode");
+		location.href=address;
+	}</script>
+  <form action="" method="post" id="specificForm" name="specificForm">
+    <input type="hidden" name="queryCol" id="specific_queryCol" value="" />
+    <input type="hidden" name="queryStr" id="specific_queryStr" value="" />
+  </form>
+  <form name="SpecialPubForm" id="SpecialPubForm" method="post" action="./baseList.jsp">
+    <input type="hidden" name="nowPage" id="nowPage" value="1" />
+    <input type="hidden" name="perPage" id="perPage" value="300" />
+    <input type="hidden" name="queryStr" id="queryStr" value="199_01" />
+    <input type="hidden" name="queryCol" id="queryCol" value="period" />
+  </form>
+  <div class="category">
+    <ul>
+      <li class="here">
+        <span>
+          <a href="javascript:redirectBaseQuery()">簡易查詢</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('period')">專刊期別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('publishType')">刊登類別</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('dept')">服務機關</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('title')">職稱</a>
+        </span>
+      </li>
+      <li>
+        <span>
+          <a href="javascript:redirectSpecific('name')">姓名</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="page">
+    <span>
+      共
+      <em>
+        
+        93
+        
+      </em>
+      筆資料第
+      <em>
+        
+        1
+        
+        /
+        
+        1
+        
+      </em>
+      頁
+    </span>
+    ｜
+    <ul>
+      <li class="here">
+        
+        1
+        
+      </li>
+    </ul>
+    ｜
+    <span>
+      每頁顯示
+      <ul>
+        <li>
+          <a title="每頁顯示30筆" href="javascript:submitToLP(1,30);">
+            
+            30
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示50筆" href="javascript:submitToLP(1,50);">
+            
+            50
+            
+          </a>
+        </li>
+        <li>
+          <a title="每頁顯示100筆" href="javascript:submitToLP(1,100);">
+            
+            100
+            
+          </a>
+        </li>
+        <li class="here">
+          
+          300
+          
+        </li>
+      </ul>
+      筆
+    </span>
+  </div>
+  <table cellspacing="0" cellpadding="0" summary="財產申報專刊查詢" class="lptb3">
+    <caption>財產申報專刊查詢</caption>
+    <tbody>
+      <tr>
+        <th class="number" scope="col">序號</th>
+        <th scope="col">
+          
+          姓名/名稱
+          
+        </th>
+        <th scope="col">
+          
+          期別
+          
+        </th>
+        <th scope="col">
+          
+          服務機關/名稱
+          
+        </th>
+        <th scope="col">
+          
+          申報類別
+          
+        </th>
+        <th scope="col">
+          
+          刊登日期
+          
+        </th>
+        <th scope="col">
+          
+          刊登頁次
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          1
+          
+          .
+        </td>
+        <td>
+          <a title="李鎂" href="javascript:redirectFileDownload(65364)">
+            
+            李鎂
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P1-5
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          2
+          
+          .
+        </td>
+        <td>
+          <a title="陳志民" href="javascript:redirectFileDownload(65365)">
+            
+            陳志民
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P6-11
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          3
+          
+          .
+        </td>
+        <td>
+          <a title="陳志民" href="javascript:redirectFileDownload(65366)">
+            
+            陳志民
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P12-13
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          4
+          
+          .
+        </td>
+        <td>
+          <a title="洪財隆" href="javascript:redirectFileDownload(65367)">
+            
+            洪財隆
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P14-16
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          5
+          
+          .
+        </td>
+        <td>
+          <a title="洪財隆" href="javascript:redirectFileDownload(65368)">
+            
+            洪財隆
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P17-17
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          6
+          
+          .
+        </td>
+        <td>
+          <a title="郭淑貞" href="javascript:redirectFileDownload(65369)">
+            
+            郭淑貞
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P18-23
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          7
+          
+          .
+        </td>
+        <td>
+          <a title="蔡文禎" href="javascript:redirectFileDownload(65370)">
+            
+            蔡文禎
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P24-26
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          8
+          
+          .
+        </td>
+        <td>
+          <a title="謝智源" href="javascript:redirectFileDownload(65371)">
+            
+            謝智源
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P27-32
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          9
+          
+          .
+        </td>
+        <td>
+          <a title="謝智源" href="javascript:redirectFileDownload(65372)">
+            
+            謝智源
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P33-33
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          10
+          
+          .
+        </td>
+        <td>
+          <a title="魏杏芳" href="javascript:redirectFileDownload(65373)">
+            
+            魏杏芳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P34-43
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          11
+          
+          .
+        </td>
+        <td>
+          <a title="魏杏芳" href="javascript:redirectFileDownload(65374)">
+            
+            魏杏芳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          公平交易委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P44-45
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          12
+          
+          .
+        </td>
+        <td>
+          <a title="蘇俊榮" href="javascript:redirectFileDownload(65375)">
+            
+            蘇俊榮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院人事行政總處
+          
+          /
+          
+          人事長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P46-49
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          13
+          
+          .
+        </td>
+        <td>
+          <a title="蘇俊榮" href="javascript:redirectFileDownload(65376)">
+            
+            蘇俊榮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院人事行政總處
+          
+          /
+          
+          人事長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P50-51
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          14
+          
+          .
+        </td>
+        <td>
+          <a title="朱澤民" href="javascript:redirectFileDownload(65377)">
+            
+            朱澤民
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院主計總處
+          
+          /
+          
+          主計長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P52-55
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          15
+          
+          .
+        </td>
+        <td>
+          <a title="蔡鴻坤" href="javascript:redirectFileDownload(65378)">
+            
+            蔡鴻坤
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院主計總處
+          
+          /
+          
+          副主計長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P56-61
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          16
+          
+          .
+        </td>
+        <td>
+          <a title="蔡鴻坤" href="javascript:redirectFileDownload(65379)">
+            
+            蔡鴻坤
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院主計總處
+          
+          /
+          
+          副主計長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P62-63
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          17
+          
+          .
+        </td>
+        <td>
+          <a title="張子敬" href="javascript:redirectFileDownload(65380)">
+            
+            張子敬
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院環境保護署
+          
+          /
+          
+          署長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P64-69
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          18
+          
+          .
+        </td>
+        <td>
+          <a title="張子敬" href="javascript:redirectFileDownload(65381)">
+            
+            張子敬
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院環境保護署
+          
+          /
+          
+          署長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P70-71
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          19
+          
+          .
+        </td>
+        <td>
+          <a title="蔡鴻德" href="javascript:redirectFileDownload(65382)">
+            
+            蔡鴻德
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院環境保護署
+          
+          /
+          
+          副署長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P72-78
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          20
+          
+          .
+        </td>
+        <td>
+          <a title="謝曉星" href="javascript:redirectFileDownload(65383)">
+            
+            謝曉星
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院原子能委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P79-84
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          21
+          
+          .
+        </td>
+        <td>
+          <a title="張靜文" href="javascript:redirectFileDownload(65384)">
+            
+            張靜文
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院原子能委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P85-92
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          22
+          
+          .
+        </td>
+        <td>
+          <a title="張靜文" href="javascript:redirectFileDownload(65385)">
+            
+            張靜文
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院原子能委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P93-94
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          23
+          
+          .
+        </td>
+        <td>
+          <a title="陳吉仲" href="javascript:redirectFileDownload(65386)">
+            
+            陳吉仲
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P95-100
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          24
+          
+          .
+        </td>
+        <td>
+          <a title="陳吉仲" href="javascript:redirectFileDownload(65387)">
+            
+            陳吉仲
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P101-101
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          25
+          
+          .
+        </td>
+        <td>
+          <a title="陳添壽" href="javascript:redirectFileDownload(65388)">
+            
+            陳添壽
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P102-105
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          26
+          
+          .
+        </td>
+        <td>
+          <a title="陳添壽" href="javascript:redirectFileDownload(65389)">
+            
+            陳添壽
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P106-107
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          27
+          
+          .
+        </td>
+        <td>
+          <a title="黃金城" href="javascript:redirectFileDownload(65390)">
+            
+            黃金城
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院農業委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P108-112
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          28
+          
+          .
+        </td>
+        <td>
+          <a title="顏久榮" href="javascript:redirectFileDownload(65391)">
+            
+            顏久榮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院公共工程委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P113-117
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          29
+          
+          .
+        </td>
+        <td>
+          <a title="顏久榮" href="javascript:redirectFileDownload(65392)">
+            
+            顏久榮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          行政院公共工程委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P118-118
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          30
+          
+          .
+        </td>
+        <td>
+          <a title="井延淵" href="javascript:redirectFileDownload(65393)">
+            
+            井延淵
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          內政部空中勤務總隊
+          
+          /
+          
+          總隊長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P119-123
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          31
+          
+          .
+        </td>
+        <td>
+          <a title="井延淵" href="javascript:redirectFileDownload(65394)">
+            
+            井延淵
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          內政部空中勤務總隊
+          
+          /
+          
+          總隊長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P124-124
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          32
+          
+          .
+        </td>
+        <td>
+          <a title="林峯正" href="javascript:redirectFileDownload(65395)">
+            
+            林峯正
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          不當黨產處理委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P125-129
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          33
+          
+          .
+        </td>
+        <td>
+          <a title="林峯正" href="javascript:redirectFileDownload(65396)">
+            
+            林峯正
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          不當黨產處理委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P130-131
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          34
+          
+          .
+        </td>
+        <td>
+          <a title="楊宏智" href="javascript:redirectFileDownload(65397)">
+            
+            楊宏智
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P132-135
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          35
+          
+          .
+        </td>
+        <td>
+          <a title="楊宏智" href="javascript:redirectFileDownload(65398)">
+            
+            楊宏智
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P136-137
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          36
+          
+          .
+        </td>
+        <td>
+          <a title="許悅玲" href="javascript:redirectFileDownload(65399)">
+            
+            許悅玲
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P138-141
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          37
+          
+          .
+        </td>
+        <td>
+          <a title="許悅玲" href="javascript:redirectFileDownload(65400)">
+            
+            許悅玲
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P142-142
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          38
+          
+          .
+        </td>
+        <td>
+          <a title="李綱" href="javascript:redirectFileDownload(65401)">
+            
+            李綱
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P143-146
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          39
+          
+          .
+        </td>
+        <td>
+          <a title="李綱" href="javascript:redirectFileDownload(65402)">
+            
+            李綱
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P147-147
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          40
+          
+          .
+        </td>
+        <td>
+          <a title="葉名山" href="javascript:redirectFileDownload(65403)">
+            
+            葉名山
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P148-152
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          41
+          
+          .
+        </td>
+        <td>
+          <a title="葉名山" href="javascript:redirectFileDownload(65404)">
+            
+            葉名山
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家運輸安全調查委員會
+          
+          /
+          
+          委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P153-154
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          42
+          
+          .
+        </td>
+        <td>
+          <a title="唐鳳" href="javascript:redirectFileDownload(65405)">
+            
+            唐鳳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          數位發展部
+          
+          /
+          
+          部長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P155-157
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          43
+          
+          .
+        </td>
+        <td>
+          <a title="李懷仁" href="javascript:redirectFileDownload(65406)">
+            
+            李懷仁
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          數位發展部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P158-161
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          44
+          
+          .
+        </td>
+        <td>
+          <a title="李懷仁" href="javascript:redirectFileDownload(65407)">
+            
+            李懷仁
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          數位發展部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P162-163
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          45
+          
+          .
+        </td>
+        <td>
+          <a title="闕河鳴" href="javascript:redirectFileDownload(65408)">
+            
+            闕河鳴
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          數位發展部
+          
+          /
+          
+          政務次長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P164-167
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          46
+          
+          .
+        </td>
+        <td>
+          <a title="林敏聰" href="javascript:redirectFileDownload(65409)">
+            
+            林敏聰
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家科學及技術委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P168-171
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          47
+          
+          .
+        </td>
+        <td>
+          <a title="林敏聰" href="javascript:redirectFileDownload(65410)">
+            
+            林敏聰
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          國家科學及技術委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P172-172
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          48
+          
+          .
+        </td>
+        <td>
+          <a title="邱太三" href="javascript:redirectFileDownload(65411)">
+            
+            邱太三
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          大陸委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P173-176
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          49
+          
+          .
+        </td>
+        <td>
+          <a title="邱太三" href="javascript:redirectFileDownload(65412)">
+            
+            邱太三
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          大陸委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P177-177
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          50
+          
+          .
+        </td>
+        <td>
+          <a title="吳美紅" href="javascript:redirectFileDownload(65413)">
+            
+            吳美紅
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          大陸委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P178-181
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          51
+          
+          .
+        </td>
+        <td>
+          <a title="邱垂正" href="javascript:redirectFileDownload(65414)">
+            
+            邱垂正
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          大陸委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P182-185
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          52
+          
+          .
+        </td>
+        <td>
+          <a title="周美伍" href="javascript:redirectFileDownload(65415)">
+            
+            周美伍
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          海洋委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P186-189
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          53
+          
+          .
+        </td>
+        <td>
+          <a title="黃向文" href="javascript:redirectFileDownload(65416)">
+            
+            黃向文
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          海洋委員會海洋保育署
+          
+          /
+          
+          署長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P190-195
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          54
+          
+          .
+        </td>
+        <td>
+          <a title="黃向文" href="javascript:redirectFileDownload(65417)">
+            
+            黃向文
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          海洋委員會海洋保育署
+          
+          /
+          
+          署長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P196-198
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          55
+          
+          .
+        </td>
+        <td>
+          <a title="夷將．拔路兒" href="javascript:redirectFileDownload(65418)">
+            
+            夷將．拔路兒
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          原住民族委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P199-201
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          56
+          
+          .
+        </td>
+        <td>
+          <a title="谷縱．喀勒芳安" href="javascript:redirectFileDownload(65419)">
+            
+            谷縱．喀勒芳安
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          原住民族委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P202-206
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          57
+          
+          .
+        </td>
+        <td>
+          <a title="林碧霞" href="javascript:redirectFileDownload(65420)">
+            
+            林碧霞
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          原住民族委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P207-210
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          58
+          
+          .
+        </td>
+        <td>
+          <a title="楊長鎮" href="javascript:redirectFileDownload(65421)">
+            
+            楊長鎮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          客家委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P211-214
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          59
+          
+          .
+        </td>
+        <td>
+          <a title="楊長鎮" href="javascript:redirectFileDownload(65422)">
+            
+            楊長鎮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          客家委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P215-215
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          60
+          
+          .
+        </td>
+        <td>
+          <a title="鍾孔炤" href="javascript:redirectFileDownload(65423)">
+            
+            鍾孔炤
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          客家委員會
+          
+          /
+          
+          副主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P216-219
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          61
+          
+          .
+        </td>
+        <td>
+          <a title="楊金龍" href="javascript:redirectFileDownload(65424)">
+            
+            楊金龍
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央銀行
+          
+          /
+          
+          總裁
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P220-226
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          62
+          
+          .
+        </td>
+        <td>
+          <a title="楊金龍" href="javascript:redirectFileDownload(65425)">
+            
+            楊金龍
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央銀行
+          
+          /
+          
+          總裁
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P227-227
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          63
+          
+          .
+        </td>
+        <td>
+          <a title="陳南光" href="javascript:redirectFileDownload(65426)">
+            
+            陳南光
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央銀行
+          
+          /
+          
+          副總裁
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P228-231
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          64
+          
+          .
+        </td>
+        <td>
+          <a title="陳南光" href="javascript:redirectFileDownload(65427)">
+            
+            陳南光
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央銀行
+          
+          /
+          
+          副總裁
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P232-232
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          65
+          
+          .
+        </td>
+        <td>
+          <a title="嚴宗大" href="javascript:redirectFileDownload(65428)">
+            
+            嚴宗大
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          中央銀行
+          
+          /
+          
+          副總裁
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P233-236
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          66
+          
+          .
+        </td>
+        <td>
+          <a title="楊珍妮" href="javascript:redirectFileDownload(65429)">
+            
+            楊珍妮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣美國事務委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P237-245
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          67
+          
+          .
+        </td>
+        <td>
+          <a title="楊珍妮" href="javascript:redirectFileDownload(65430)">
+            
+            楊珍妮
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          台灣美國事務委員會
+          
+          /
+          
+          主任委員
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P246-246
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          68
+          
+          .
+        </td>
+        <td>
+          <a title="游錫堃" href="javascript:redirectFileDownload(65431)">
+            
+            游錫堃
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          院長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P247-249
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          69
+          
+          .
+        </td>
+        <td>
+          <a title="游錫堃" href="javascript:redirectFileDownload(65432)">
+            
+            游錫堃
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          院長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P250-250
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          70
+          
+          .
+        </td>
+        <td>
+          <a title="蔡其昌" href="javascript:redirectFileDownload(65433)">
+            
+            蔡其昌
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          副院長
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P251-255
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          71
+          
+          .
+        </td>
+        <td>
+          <a title="蔡其昌" href="javascript:redirectFileDownload(65434)">
+            
+            蔡其昌
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          副院長
+          
+        </td>
+        <td>
+          
+          04信託申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P256-257
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          72
+          
+          .
+        </td>
+        <td>
+          <a title="李德維" href="javascript:redirectFileDownload(65435)">
+            
+            李德維
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P258-264
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          73
+          
+          .
+        </td>
+        <td>
+          <a title="李德維" href="javascript:redirectFileDownload(65436)">
+            
+            李德維
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P265-266
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          74
+          
+          .
+        </td>
+        <td>
+          <a title="沈發惠" href="javascript:redirectFileDownload(65437)">
+            
+            沈發惠
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P267-275
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          75
+          
+          .
+        </td>
+        <td>
+          <a title="沈發惠" href="javascript:redirectFileDownload(65438)">
+            
+            沈發惠
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P276-278
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          76
+          
+          .
+        </td>
+        <td>
+          <a title="邱臣遠" href="javascript:redirectFileDownload(65439)">
+            
+            邱臣遠
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P279-283
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          77
+          
+          .
+        </td>
+        <td>
+          <a title="邱臣遠" href="javascript:redirectFileDownload(65440)">
+            
+            邱臣遠
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P284-284
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          78
+          
+          .
+        </td>
+        <td>
+          <a title="林昶佐" href="javascript:redirectFileDownload(65441)">
+            
+            林昶佐
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P285-289
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          79
+          
+          .
+        </td>
+        <td>
+          <a title="林昶佐" href="javascript:redirectFileDownload(65442)">
+            
+            林昶佐
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P290-290
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          80
+          
+          .
+        </td>
+        <td>
+          <a title="林楚茵" href="javascript:redirectFileDownload(65443)">
+            
+            林楚茵
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P291-294
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          81
+          
+          .
+        </td>
+        <td>
+          <a title="林楚茵" href="javascript:redirectFileDownload(65444)">
+            
+            林楚茵
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P295-296
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          82
+          
+          .
+        </td>
+        <td>
+          <a title="傅崐萁" href="javascript:redirectFileDownload(65445)">
+            
+            傅崐萁
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P297-303
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          83
+          
+          .
+        </td>
+        <td>
+          <a title="傅崐萁" href="javascript:redirectFileDownload(65446)">
+            
+            傅崐萁
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P304-304
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          84
+          
+          .
+        </td>
+        <td>
+          <a title="費鴻泰" href="javascript:redirectFileDownload(65447)">
+            
+            費鴻泰
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P305-308
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          85
+          
+          .
+        </td>
+        <td>
+          <a title="費鴻泰" href="javascript:redirectFileDownload(65448)">
+            
+            費鴻泰
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P309-309
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          86
+          
+          .
+        </td>
+        <td>
+          <a title="鄭運鵬" href="javascript:redirectFileDownload(65449)">
+            
+            鄭運鵬
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P310-313
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          87
+          
+          .
+        </td>
+        <td>
+          <a title="鄭運鵬" href="javascript:redirectFileDownload(65450)">
+            
+            鄭運鵬
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P314-314
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          88
+          
+          .
+        </td>
+        <td>
+          <a title="劉世芳" href="javascript:redirectFileDownload(65451)">
+            
+            劉世芳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          01一般申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P315-317
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          89
+          
+          .
+        </td>
+        <td>
+          <a title="劉世芳" href="javascript:redirectFileDownload(65452)">
+            
+            劉世芳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          立法院
+          
+          /
+          
+          立法委員
+          
+        </td>
+        <td>
+          
+          09變動申報
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P318-318
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          90
+          
+          .
+        </td>
+        <td>
+          <a title="許以霖" href="javascript:redirectFileDownload(65453)">
+            
+            許以霖
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府衛生局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P319-320
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          91
+          
+          .
+        </td>
+        <td>
+          <a title="葉澤山" href="javascript:redirectFileDownload(65454)">
+            
+            葉澤山
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺南市政府文化局
+          
+          /
+          
+          局長
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P321-321
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          92
+          
+          .
+        </td>
+        <td>
+          <a title="賴剛哲" href="javascript:redirectFileDownload(65455)">
+            
+            賴剛哲
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺灣菸酒股份有限公司桃園營業處
+          
+          /
+          
+          經理
+          
+        </td>
+        <td>
+          
+          08信託指示通知
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P322-322
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="number">
+          
+          93
+          
+          .
+        </td>
+        <td>
+          <a title="葉林傳" href="javascript:redirectFileDownload(65459)">
+            
+            葉林傳
+            
+          </a>
+        </td>
+        <td>
+          
+          199
+          
+          (
+          
+          廉政專刊
+          
+          )
+        </td>
+        <td>
+          
+          臺北市議會
+          
+          /
+          
+          副議長
+          
+        </td>
+        <td>
+          
+          06勘誤表
+          
+        </td>
+        <td>民國112年
+			03月
+			14日</td>
+        <td>
+          
+          P328-328
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+	
+	
+    </td>
+    <td class="hidden"></td>
+  </tr>
+</table>
+<!--div class="quickLink">
+	<ul>
+		<li>
+			<a href="javascript:self.close();" class="gotop" title="關閉視窗">關閉視窗</a>
+		</li>
+		<li>
+			<a href="../priq/main.jsp" class="gotop" title="回功能頁">回功能頁</a>
+		</li>
+		<li>
+			<a href="javascript:history.back();" class="back" title="回上一頁">回上一頁</a>
+			<noscript>當script無法執行時可按"alt + &larr;"鍵替代</noscript>
+		</li>
+		<li style="display:none;">lp.xsl:,cp.xsl:</li>
+	</ul>
+</div-->
+
+</body>
+</html>
