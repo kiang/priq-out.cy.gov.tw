@@ -6,7 +6,7 @@ if (!file_exists($pagePath)) {
     mkdir($pagePath, 0777, true);
 }
 $listPath = $rootPath . '/data/list';
-$pageFullFile = $pagePath . '/20230224.html';
+$pageFullFile = $pagePath . '/page.html';
 if (!file_exists($pageFullFile)) {
     file_put_contents($pageFullFile, file_get_contents('https://priq-out.cy.gov.tw/GipExtendWeb/wSite/SpecialPublication/SpecificLP.jsp?nowPage=1&perPage=500&queryStr=&queryCol=period'));
 }
